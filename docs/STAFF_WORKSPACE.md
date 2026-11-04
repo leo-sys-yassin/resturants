@@ -30,3 +30,37 @@ Local verification: tests/profile-stats.sql (rolled back fixtures),
 profile-workspace.py (mocked browser transport), service-api.test.mjs and
 backend.test.mjs. Actual Firebase deployment and real-account browser acceptance
 must follow the repository update; Cloudflare auto-build does not update Firebase.
+
+## Navigation follow-up
+
+The editor document starts cloaked, and the parent keeps the iframe hidden behind
+a loading status until the editor or sign-in surface is ready. A 20-second
+loading fallback offers Retry and Return. View menu closes only the editor
+dialog, previews the current saved draft in the same iframe, and retains the
+owner session. Back to editor reopens it without a draft reload. Back to admin
+workspace is a separate command and respects unsaved-change confirmation.
+Browser regression covers delayed draft responses, loading visibility, edited
+draft preview, editor reopen, rejected/accepted discard and workspace return.
+
+## Sidebar, table menu and public feedback
+
+The owner primary navigation is Edit menu / Team / Tables. Profile, settings,
+history, feedback and sign out live in the account sidebar, which shows the
+name, username and role. It is persistent at >=1100px and a native modal drawer
+on smaller screens. Settings no longer repeat profile/team shortcuts.
+Table ordering uses searchable category/product cards with images, prices,
+quantity, modifiers and notes; a separate basket requires an explicit server
+save. The first EMBER server draft was initialized with the adopted 61-item
+menu using INSERT ON CONFLICT DO NOTHING (no draft overwrite). This is a demo
+restaurant catalog, not imported real restaurant inventory.
+The public customer menu has a Feedback dialog posting validated stars/comments
+to restaurant-service /menu-feedback. Its new menu_feedback table has RLS and
+no browser grants. Only the owner inbox reads it, alongside labeled per-table
+feedback. Anonymous feedback uses per-client and IP rate gates.
+restaurant-service v4 includes these endpoints (health table-service-v3).
+Frontend regression covers slow editor initialization, draft preview/return,
+discard confirmation, sidebar/mobile layouts, card search/category filters,
+modifiers, saved table baskets, and customer feedback reaching the owner inbox
+using shared mocked transport. Database insert/privilege checks use rolled-back
+fixtures. Firebase still requires deployment through the authenticated user
+Cloud Shell; repository pushes only auto-deploy Cloudflare.
