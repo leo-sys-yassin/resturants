@@ -24,7 +24,7 @@ begin
  if r is null or r not in ('owner','waiter') then raise exception 'forbidden' using errcode='42501'; end if;
  if r='waiter' and not exists(select 1 from public.waiter_profiles where restaurant_id=p_restaurant and user_id=p_actor and active) then raise exception 'disabled' using errcode='42501'; end if;
  with eligible as (
- select * from public.table_sessions where restaurant_id=p_restaurant and (r='owner' or waiter_id=p_actor)
+ select * from public.table_sessions where restaurant_id=p_restaurant and (r='owner' or waiter_id=p_actor) and (closed_at is null or (closed_at >= (d::timestamp at time zone 'Asia/Damascus') and closed_at < ((d+1)::timestamp at time zone 'Asia/Damascus')))
  ), daily as (
  select s.waiter_id,count(*) as closed,coalesce(sum((select coalesce(sum((l->>'unitUSD')::numeric*(l->>'qty')::numeric),0) from jsonb_array_elements(s.basket) l)),0) as amount
  from eligible s where s.closed_at >= (d::timestamp at time zone 'Asia/Damascus') and s.closed_at < ((d+1)::timestamp at time zone 'Asia/Damascus') group by s.waiter_id

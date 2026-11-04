@@ -1,0 +1,31 @@
+begin;
+do $$
+declare r uuid:=gen_random_uuid(); o uuid:=gen_random_uuid(); w uuid:=gen_random_uuid(); client uuid:=gen_random_uuid(); submission uuid:=gen_random_uuid(); tid uuid; sid uuid; reply jsonb; n integer;
+begin
+ insert into auth.users(id,email) values(o,o::text||'@example.invalid'),(w,w::text||'@example.invalid');
+ insert into public.restaurants(id,slug,name) values(r,'speed-'||r::text,'Speed');
+ insert into public.restaurant_members values(r,o,'owner',true);
+ perform public.service_waiter_profile(r,o,w,'waiter_speed','Speed waiter',true);
+ reply:=public.service_submit_menu_feedback(r,client,submission,repeat('a',64),5,' Great ');
+ if reply->>'accepted'<>'true' then raise exception 'feedback rejected'; end if;
+ reply:=public.service_submit_menu_feedback(r,client,submission,repeat('a',64),5,'Great');
+ select count(*) into n from public.menu_feedback where restaurant_id=r; if n<>1 then raise exception 'duplicate feedback'; end if;
+ begin perform public.service_submit_menu_feedback(r,client,submission,repeat('a',64),1,'Changed'); raise exception 'idempotency key overwrite accepted'; exception when invalid_parameter_value then null; end;
+ perform public.service_submit_menu_feedback(r,client,gen_random_uuid(),repeat('a',64),4,'Two');
+ perform public.service_submit_menu_feedback(r,client,gen_random_uuid(),repeat('a',64),4,'Three');
+ reply:=public.service_submit_menu_feedback(r,client,gen_random_uuid(),repeat('a',64),4,'Four');if reply->>'accepted'<>'false' then raise exception 'rate gate lost'; end if;
+ reply:=public.service_feedback_inbox(r,o);if jsonb_array_length(reply)<>3 or reply->0->>'source'<>'menu' then raise exception 'inbox invalid: %',reply; end if;
+ begin perform public.service_feedback_inbox(r,w); raise exception 'waiter read feedback'; exception when insufficient_privilege then null; end;
+ begin perform public.service_closed_history(r,w); raise exception 'waiter read owner history'; exception when insufficient_privilege then null; end;
+ perform public.table_service_action(r,o,'create_tables','{"from":1,"to":1}');
+ select id into tid from public.dining_tables where restaurant_id=r;
+ sid:=(public.table_service_action(r,w,'open',jsonb_build_object('tableId',tid,'guests',2))->>'id')::uuid;
+ update public.table_sessions set basket='[{"qty":2,"unitUSD":5.25}]',closed_at=now() where id=sid;
+ reply:=public.service_submit_table_feedback(sid,repeat('b',64),5,'Good table');if reply->>'accepted'<>'true' then raise exception 'table feedback failed'; end if;
+ reply:=public.service_submit_table_feedback(sid,repeat('b',64),5,'Good table');if reply->>'accepted'<>'true' then raise exception 'table feedback retry failed'; end if;
+ reply:=public.service_submit_table_feedback(sid,repeat('b',64),1,'Changed');if reply->>'status'<>'409' then raise exception 'table feedback overwrite accepted'; end if;
+ reply:=public.service_closed_history(r,o);if jsonb_array_length(reply)<>1 or (reply->0->>'totalValueUSD')::numeric<>10.5 or reply->0?'basket' then raise exception 'history aggregation invalid: %',reply; end if;
+ if has_function_privilege('anon','public.service_submit_menu_feedback(uuid,uuid,uuid,text,integer,text)','execute') or has_function_privilege('authenticated','public.service_feedback_inbox(uuid,uuid)','execute') then raise exception 'RPC permission leak'; end if;
+end $$;
+rollback;
+select 'PASS: atomic feedback, retry idempotence, changed-content protection, rate limits, scoped inbox, compact history and no browser RPC grants' as verification;

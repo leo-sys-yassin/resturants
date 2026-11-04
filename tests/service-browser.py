@@ -18,7 +18,8 @@ with sync_playwright() as p:
     data={**sessions[0],'revision':sessions[0]['revision']+1,'guests':d['guests'],'basket':[{**l,'name':'برغر','nameEn':'Burger','unitUSD':5} for l in d['basket']]};sessions=[data]
    elif action=='close':sessions=[];data={'ok':True}
    else:data={'ok':True}
-  elif url.endswith('/feedback') or url.endswith('/history'):data=[]
+  elif url.endswith('/feedback') or url.endswith(('/history','/history-summary')):data=[]
+  if url.endswith('/bootstrap'):data={'state':{'role':role,'userId':O if role=='owner' else W,'tables':[{'id':T,'number':1,'label':'','active':True}],'sessions':sessions,'waiters':waiters},'catalog':{'config':{'nameEn':'EMBER','name':'إمبر','exchangeRate':12000},'groups':[],'products':[{'id':'burger','name':'برغر','en':'Burger','priceCurrency':'USD','priceAmount':5,'optionGroups':[]}]},'profile':{'role':role,'name':'Owner' if role=='owner' else 'Ali','username':'owner' if role=='owner' else 'ali','day':'2026-11-04','timezone':'Asia/Damascus','closedTables':0,'closedValueUSD':0,'openTables':0,'viewsToday':0,'series':[],'staff':[]}}
   r.fulfill(status=200,content_type='application/json',body=json.dumps(data))
  ctx.route('https://sewhqpwncbfbtaswejoy.supabase.co/**',route)
  pg.goto('http://127.0.0.1:8804/staff',wait_until='networkidle');pg.locator('#ownerMode').click();pg.locator('[name=user]').fill('owner@example.com');pg.locator('[name=password]').fill('test-password');pg.locator('#loginForm button[type=submit], #loginForm button.primary').click();pg.locator('[data-tab=waiters]').click();pg.locator('[name=name]').fill('Ali');pg.locator('[name=username]').fill('ali');pg.locator('#generateCode').click();assert len(pg.locator('#newAccessCode').input_value())>=12;pg.locator('#waiterForm button.primary').click();pg.wait_for_selector('[data-toggle-waiter]');pg.locator('#toggleSidebar').click();pg.locator('#logout').click()
