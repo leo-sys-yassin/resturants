@@ -1,0 +1,198 @@
+[
+  {
+    "id": "cheeseburger",
+    "source": "exec-cb79e21a-f880-4b34-b903-54404c811242.png",
+    "quadrant": 0,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "cheesemeal",
+    "source": "exec-cb79e21a-f880-4b34-b903-54404c811242.png",
+    "quadrant": 1,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "classicmeal",
+    "source": "exec-cb79e21a-f880-4b34-b903-54404c811242.png",
+    "quadrant": 2,
+    "kind": "plate",
+    "width": 640,
+    "height": 640,
+    "correction_source": "exec-a8c790a0-6e8d-4683-b0ac-ca69079fe2f1.png",
+    "correction": "Removed unrequested bacon/meat toppings to match the listed recipe."
+  },
+  {
+    "id": "mushroom",
+    "source": "exec-cb79e21a-f880-4b34-b903-54404c811242.png",
+    "quadrant": 3,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "spicyburger",
+    "source": "exec-14e47e18-8f53-4642-9c3c-4d74e759bf7b.png",
+    "quadrant": 0,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "veggie",
+    "source": "exec-14e47e18-8f53-4642-9c3c-4d74e759bf7b.png",
+    "quadrant": 1,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "crispy",
+    "source": "exec-14e47e18-8f53-4642-9c3c-4d74e759bf7b.png",
+    "quadrant": 2,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "chickenbites",
+    "source": "exec-14e47e18-8f53-4642-9c3c-4d74e759bf7b.png",
+    "quadrant": 3,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "buffalo",
+    "source": "exec-21783df2-b048-4ea4-a67a-cc8c4540a0d8.png",
+    "quadrant": 0,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "bbqwings",
+    "source": "exec-21783df2-b048-4ea4-a67a-cc8c4540a0d8.png",
+    "quadrant": 1,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "beefwrap",
+    "source": "exec-21783df2-b048-4ea4-a67a-cc8c4540a0d8.png",
+    "quadrant": 2,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "chickenwrap",
+    "source": "exec-21783df2-b048-4ea4-a67a-cc8c4540a0d8.png",
+    "quadrant": 3,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "fries",
+    "source": "exec-f321ffb7-3321-4629-8af6-e011ab130be6.png",
+    "quadrant": 0,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "loadedfries",
+    "source": "exec-f321ffb7-3321-4629-8af6-e011ab130be6.png",
+    "quadrant": 1,
+    "kind": "plate",
+    "width": 640,
+    "height": 640,
+    "correction_source": "exec-a8c790a0-6e8d-4683-b0ac-ca69079fe2f1.png",
+    "correction": "Removed unrequested bacon/meat toppings to match the listed recipe."
+  },
+  {
+    "id": "onionrings",
+    "source": "exec-f321ffb7-3321-4629-8af6-e011ab130be6.png",
+    "quadrant": 2,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "caesar",
+    "source": "exec-f321ffb7-3321-4629-8af6-e011ab130be6.png",
+    "quadrant": 3,
+    "kind": "plate",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "chocolate",
+    "source": "exec-1b7e1240-38e1-47c6-a486-05eac4f2dfe2.png",
+    "quadrant": 0,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "strawberry",
+    "source": "exec-1b7e1240-38e1-47c6-a486-05eac4f2dfe2.png",
+    "quadrant": 1,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "oreo",
+    "source": "exec-1b7e1240-38e1-47c6-a486-05eac4f2dfe2.png",
+    "quadrant": 2,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "vanilla",
+    "source": "exec-1b7e1240-38e1-47c6-a486-05eac4f2dfe2.png",
+    "quadrant": 3,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "banana",
+    "source": "exec-4af2f23c-7e9d-4d8b-99df-85529dac39f3.png",
+    "quadrant": 0,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "mango",
+    "source": "exec-4af2f23c-7e9d-4d8b-99df-85529dac39f3.png",
+    "quadrant": 1,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "kiwi",
+    "source": "exec-4af2f23c-7e9d-4d8b-99df-85529dac39f3.png",
+    "quadrant": 2,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "cola",
+    "source": "exec-4af2f23c-7e9d-4d8b-99df-85529dac39f3.png",
+    "quadrant": 3,
+    "kind": "drink",
+    "width": 640,
+    "height": 640
+  }
+]

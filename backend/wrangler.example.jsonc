@@ -1,0 +1,12 @@
+{
+ "name":"restaurant-menu-api",
+ "main":"worker.mjs",
+ "compatibility_date":"2026-11-04",
+ "vars":{
+  "SUPABASE_URL":"https://REPLACE.supabase.co",
+  "SUPABASE_PUBLISHABLE_KEY":"REPLACE_WITH_PUBLISHABLE_KEY",
+  "ADMIN_ORIGIN":"https://admin.example.com",
+  "ASSET_BASE":"https://assets.example.com"
+ },
+ "r2_buckets":[{"binding":"MENU_ASSETS","bucket_name":"restaurant-menu-assets"}]
+}

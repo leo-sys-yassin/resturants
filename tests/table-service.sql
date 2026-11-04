@@ -1,0 +1,32 @@
+begin;
+do $$
+declare r uuid:=gen_random_uuid(); o uuid:=gen_random_uuid(); w uuid:=gen_random_uuid(); w2 uuid:=gen_random_uuid(); outsider uuid:=gen_random_uuid(); tid uuid; s jsonb; sid uuid; n integer;
+begin
+ insert into auth.users(id,email) values(o,o::text||'@example.invalid'),(w,w::text||'@example.invalid'),(w2,w2::text||'@example.invalid'),(outsider,outsider::text||'@example.invalid');
+ insert into public.restaurants(id,slug,name) values(r,'test-'||r::text,'Test');
+ insert into public.restaurant_members values(r,o,'owner',true);
+ perform public.service_waiter_profile(r,o,w,'waiter_one','One',true);
+ perform public.service_waiter_profile(r,o,w2,'waiter_two','Two',true);
+ perform public.table_service_action(r,o,'create_tables','{"from":1,"to":45}');
+ select count(*) into n from public.dining_tables where restaurant_id=r; if n<>45 then raise exception 'range failed'; end if;
+ select id into tid from public.dining_tables where restaurant_id=r and number=1;
+ s:=public.table_service_action(r,w,'open',jsonb_build_object('tableId',tid,'guests',4)); sid:=(s->>'id')::uuid;
+ begin perform public.table_service_action(r,w2,'open',jsonb_build_object('tableId',tid,'guests',2)); raise exception 'duplicate open accepted'; exception when serialization_failure then null; end;
+ begin perform public.table_service_action(r,w2,'save',jsonb_build_object('sessionId',sid,'expectedRevision',1,'basket','[]'::jsonb)); raise exception 'other waiter save accepted'; exception when insufficient_privilege then null; end;
+ s:=public.table_service_action(r,w,'save',jsonb_build_object('sessionId',sid,'expectedRevision',1,'basket','[{"key":"one","qty":2}]'::jsonb));
+ if s->>'revision'<>'2' then raise exception 'save failed'; end if;
+ begin perform public.table_service_action(r,w,'save',jsonb_build_object('sessionId',sid,'expectedRevision',1,'basket','[]'::jsonb)); raise exception 'stale save accepted'; exception when serialization_failure then null; end;
+ begin perform public.table_service_action(r,w,'reassign',jsonb_build_object('sessionId',sid,'expectedRevision',2,'waiterId',w2)); raise exception 'waiter reassigned'; exception when insufficient_privilege then null; end;
+ s:=public.table_service_action(r,o,'reassign',jsonb_build_object('sessionId',sid,'expectedRevision',2,'waiterId',w2));
+ begin perform public.table_service_action(r,w,'close',jsonb_build_object('sessionId',sid,'expectedRevision',3)); raise exception 'old waiter closed'; exception when insufficient_privilege then null; end;
+ s:=public.table_service_action(r,w2,'close',jsonb_build_object('sessionId',sid,'expectedRevision',3));
+ if s->>'closed_at' is null or jsonb_array_length(s->'basket')<>1 then raise exception 'history lost'; end if;
+ s:=public.table_service_action(r,w2,'open',jsonb_build_object('tableId',tid,'guests',1));
+ if s->'basket'<>'[]'::jsonb then raise exception 'new basket not empty'; end if;
+ perform public.service_waiter_profile(r,o,w2,'waiter_two','Two',false);
+ begin perform public.table_service_action(r,w2,'close',jsonb_build_object('sessionId',s->>'id','expectedRevision',1)); raise exception 'disabled waiter acted'; exception when insufficient_privilege then null; end;
+ begin perform public.table_service_action(r,outsider,'create_tables','{"from":1,"to":2}'); raise exception 'outsider acted'; exception when insufficient_privilege then null; end;
+ if has_function_privilege('authenticated','public.table_service_action(uuid,uuid,text,jsonb)','execute') or has_table_privilege('authenticated','public.waiter_profiles','select') then raise exception 'service-only privileges leaked'; end if;
+end $$;
+rollback;
+select 'PASS: 45 tables, no duplicate occupancy, assignment, revisions, reassignment, closure history, fresh basket, disabled accounts and service-only access' as verification;

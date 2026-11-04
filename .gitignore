@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+.wrangler/
+node_modules/
+__pycache__/
+.openai/
+*.pem
