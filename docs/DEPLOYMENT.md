@@ -5,8 +5,10 @@
 - `restaurant-service` Edge Function deployed. Authentication is enforced in the handler; JWT gateway verification is off because `/login` and signed customer-feedback submissions are public endpoints.
 - UI and Cloudflare management Worker are source files, not yet a verified public deployment.
 
-## Frontend (Cloudflare Pages)
-Connect this repository, select branch `main`, no build command, output directory `web`. The files are static. No GitHub Actions are required. `web/_redirects` supports `/r/<slug>`.
+## Frontend (Cloudflare Workers Static Assets)
+The connected application is named `resturants`. Select branch `main`, repository root as the root directory, no build command, and deploy command `npx wrangler deploy`. The tracked root `wrangler.jsonc` explicitly selects `web` as the asset directory. No GitHub Actions are required.
+
+Nested `/r/<slug>` menu navigation uses the built-in `single-page-application` asset fallback. The old `_redirects` rewrite was removed because Workers rejected it as an infinite redirect loop. Existing `service.html`, `reset.html`, scripts, styles and images remain separate static assets. This frontend deployment does not provision R2 or deploy the separate management API.
 
 ## Menu publishing (Cloudflare Worker + R2)
 1. Enable R2 Standard and create a dedicated `restaurant-menu-assets` bucket. Included quotas are not a guaranteed spending cap; review billing before enabling.
