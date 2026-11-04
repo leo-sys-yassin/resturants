@@ -6,7 +6,7 @@ def uri(p):return 'data:'+(mimetypes.guess_type(str(p))[0] or 'application/octet
 # Only assets used by this version, no legacy 3D runtime or model.
 files=list((src/'assets/plated').glob('*.webp'))+list((src/'assets/snacks').glob('*.webp'))+[p for p in (src/'assets/burger-photo').glob('*.webp') if p.stem.startswith('ref-')]
 assets={str(p.relative_to(src/'assets')):uri(p) for p in files}
-html=(src/'index.html').read_text().replace('<base href="/">','');html=re.sub(r'<a class="management-link" href="(?:service.html|/staff)">.*?</a>','',html);css=(src/'style.css').read_text()
+html=(src/'index.html').read_text().replace('<base href="/">','').replace('<script defer src="menu-visits.js"></script>','');html=re.sub(r'<a class="management-link" href="(?:service.html|/staff)">.*?</a>','',html);css=(src/'style.css').read_text()
 def css_asset(m):
  path=src/m.group(1)
  if not path.exists():raise RuntimeError('Missing CSS asset: '+str(path))
