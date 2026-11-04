@@ -19,7 +19,7 @@
   const follow=reduced||!visible?1:1-Math.exp(-dt*35);progress+=(target-progress)*follow;if(Math.abs(target-progress)<.0002)progress=target;
   parallax+=(parallaxTarget-parallax)*(reduced?1:.18);
   if(!w||!h){resize();return}
-  const closedWidth=Math.min(w*1.02,500),openWidth=Math.min(w*.96,(h-20)*1024/1536,500),artWidth=closedWidth+(openWidth-closedWidth)*progress;
+  const desktop=innerWidth>=1000,closedWidth=Math.min(w*(desktop?1.04:1.06),desktop?780:540),openWidth=Math.min(w*.96,(h-20)*1024/1536,desktop?580:500),artWidth=closedWidth+(openWidth-closedWidth)*progress;
   const center=h*.5;
   for(const part of parts){
    const closedY=(part.assembledY-300)*closedWidth/560,openY=(part.sourceY-768)*openWidth/1024;
@@ -32,7 +32,7 @@
   document.getElementById('scrollMeter').style.transform=`scaleX(${progress.toFixed(4)})`;
   document.getElementById('scrollProgressLabel').textContent=progress<.015?'اسحب للأعلى':`${Math.round(progress*100)}٪ من التفاصيل`;
   document.getElementById('layerStory').textContent=progress<.25?'تشيز برغر إمبر':progress<.75?'كل طبقة، نكهة.':'المكونات، على الأصول.';
-stage.dataset.motionSource='compositor-layers';stage.style.setProperty('--explosion',progress.toFixed(4));stage.dataset.explosion=progress.toFixed(3);stage.dataset.photoReady='true';stage.dataset.flow='free-scroll';
+stage.dataset.motionSource='compositor-layers';stage.style.setProperty('--explosion',progress.toFixed(4));stage.style.setProperty('--burger-drift',parallax.toFixed(3));stage.dataset.explosion=progress.toFixed(3);stage.dataset.photoReady='true';stage.dataset.flow='free-scroll';
   if(visible&&(Math.abs(progress-target)>.0001||Math.abs(parallax-parallaxTarget)>.02))request();
  }
  addEventListener('scroll',request,{passive:true});addEventListener('resize',resize,{passive:true});new ResizeObserver(resize).observe(stage);
