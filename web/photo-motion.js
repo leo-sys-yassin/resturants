@@ -14,12 +14,12 @@
  const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
  function request(){if(!raf&&!document.hidden)raf=requestAnimationFrame(draw)}
  function resize(){w=stage.clientWidth;h=stage.clientHeight;request()}
- function draw(time){raf=0;if(document.hidden)return;const rect=section.getBoundingClientRect(),documentTop=rect.top+scrollY,start=Math.max(0,documentTop-innerHeight*.40),distance=Math.max(150,Math.min(240,innerHeight*.25));const raw=clamp((scrollY-start)/distance);target=raw*raw*(3-2*raw);
+ function draw(time){raf=0;if(document.hidden)return;const rect=stage.getBoundingClientRect(),documentTop=rect.top+scrollY,start=Math.max(0,documentTop-innerHeight*.50),distance=Math.max(80,Math.min(110,innerHeight*.13));const raw=clamp((scrollY-start)/distance);target=raw*raw*(3-2*raw);
   const dt=lastTime?Math.min((time-lastTime)/1000,.05):.016;lastTime=time;
   const follow=reduced||!visible?1:1-Math.exp(-dt*35);progress+=(target-progress)*follow;if(Math.abs(target-progress)<.0002)progress=target;
   parallax+=(parallaxTarget-parallax)*(reduced?1:.18);
   if(!w||!h){resize();return}
-  const desktop=innerWidth>=1000,closedWidth=Math.min(w*(desktop?1.04:1.06),desktop?780:540),openWidth=Math.min(w*.96,(h-20)*1024/1536,desktop?580:500),artWidth=closedWidth+(openWidth-closedWidth)*progress;
+  const desktop=innerWidth>=1000,closedWidth=Math.min(w*.94,desktop?620:420),openWidth=Math.min(w*.90,(h-48)*1024/1690,desktop?480:390),artWidth=closedWidth+(openWidth-closedWidth)*progress;
   const center=h*.5;
   for(const part of parts){
    const closedY=(part.assembledY-300)*closedWidth/560,openY=(part.sourceY-768)*openWidth/1024;

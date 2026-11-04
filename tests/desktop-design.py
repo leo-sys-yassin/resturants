@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);pg=b.new_page(locale='ar-SY',viewport={'width':1440,'height':1000});errors=[];pg.on('pageerror',lambda e:errors.append(str(e)));pg.goto('http://127.0.0.1:8804',wait_until='networkidle');pg.wait_for_timeout(900)
- stage=pg.locator('#burgerStage').bounding_box();top=pg.locator('[data-ingredient=ref-top]').bounding_box();assert stage['width']>650;assert top['width']>650
+ stage=pg.locator('#burgerStage').bounding_box();top=pg.locator('[data-ingredient=ref-top]').bounding_box();assert stage['width']>650;assert 400<top['width']<650
  pg.screenshot(path='/workspace/output/EMBER-desktop-updated.png')
  scenes=pg.locator('.dish-scene');assert scenes.count()==11
  for i in [0,1,2]:

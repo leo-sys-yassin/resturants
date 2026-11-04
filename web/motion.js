@@ -2,17 +2,21 @@
 (()=>{
  'use strict';
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const moneyStates=new WeakMap(),visibleMotion=new Map(),drinkRuns=new WeakMap();let scrollFrame=0;
+ const moneyStates=new WeakMap(),visibleMotion=new Map(),visibleScenes=new Map(),drinkRuns=new WeakMap();let scrollFrame=0;
  const money=n=>'$'+n.toFixed(10),clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
  const animate=(el,frames,options)=>!reduced&&el?.animate(frames,options);
  const ambient=[...document.querySelectorAll('[data-ambient]')];
  const photoObserver=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){if(!visibleMotion.has(e.target)){visibleMotion.set(e.target,true);}}else visibleMotion.delete(e.target)}requestScroll()},{rootMargin:'40px'});
+ const sceneObserver=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting)visibleScenes.set(e.target,true);else visibleScenes.delete(e.target)}requestScroll()},{rootMargin:'180px'});
  function requestScroll(){if(!scrollFrame&&!document.hidden)scrollFrame=requestAnimationFrame(updateScroll)}
  function updateScroll(now){scrollFrame=0;const updates=[];let pending=false;
   for(const el of visibleMotion.keys()){if(!el.isConnected){visibleMotion.delete(el);continue}const rect=el.parentElement.getBoundingClientRect(),h=el.offsetHeight;const progress=clamp((innerHeight-rect.top)/(innerHeight+h));updates.push({el,progress,enter:clamp((innerHeight*.88-rect.top)/Math.min(360,innerHeight*.45))})}
   for(const v of updates){if(v.el.hasAttribute('data-dish-motion')){v.el.style.setProperty('--dish-rotate',reduced?'0deg':((v.progress-.5)*42).toFixed(2)+'deg');v.el.style.setProperty('--dish-y','0px');v.el.style.setProperty('--dish-x','0px')}
    else{v.el.style.setProperty('--drink-y','0px');}
   }
+  const sceneUpdates=[];
+  for(const scene of visibleScenes.keys()){if(!scene.isConnected){visibleScenes.delete(scene);continue}const r=scene.getBoundingClientRect(),heading=scene.querySelector('.scene-heading');const anchor=r.top+(heading?.offsetHeight||0)+parseFloat(getComputedStyle(scene).paddingTop||0);const raw=reduced?1:clamp((innerHeight*.92-anchor)/Math.max(180,innerHeight*.48));const previous=Number(scene.dataset.revealProgress||0),next=reduced?1:previous+(raw-previous)*.24;const value=Math.abs(next-raw)<.001?raw:next;const segment=(a,b)=>clamp((value-a)/(b-a)),ease=v=>1-Math.pow(1-v,3);sceneUpdates.push({scene,value,photo:ease(segment(0,.8)),copy:ease(segment(.10,.72)),price:ease(segment(.48,.92))});if(!reduced&&Math.abs(value-raw)>.001)pending=true}
+  for(const u of sceneUpdates){u.scene.dataset.revealProgress=u.value.toFixed(4);u.scene.style.setProperty('--plate-reveal',u.photo.toFixed(4));u.scene.style.setProperty('--copy-reveal',u.copy.toFixed(4));u.scene.style.setProperty('--price-reveal',u.price.toFixed(4));}
   if(!reduced)ambient.forEach((el,i)=>{const phase=scrollY/(innerHeight*1.6)+i*.38,side=i%2===0?1:-1;const x=side*Math.sin(phase)*48,travel=innerHeight+400,base=[.16,.68,.41,.88][i]*innerHeight,y=((base-scrollY*.15+200)%travel+travel)%travel-200;el.style.transform=`translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0)`});
   if(pending)requestScroll();
  }
@@ -20,7 +24,7 @@
  const revealObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('is-revealed');revealObserver.unobserve(e.target)}},{threshold:.08});
  const source=name=>window.EMBER_EMBEDDED_ASSETS?.['drink-parts/'+name+'.webp']||'assets/drink-parts/'+name+'.webp';
  function serveDrink(){}
- function mountProducts(){revealObserver.disconnect();photoObserver.disconnect();visibleMotion.clear();document.querySelectorAll('[data-dish-motion],[data-drink-motion]').forEach(el=>photoObserver.observe(el));document.querySelectorAll('.scene-heading,.scene-copy,.section-intro,.scene-visual,.scene-thumbs').forEach(el=>{el.classList.add('content-reveal');if(reduced)el.classList.add('is-revealed');else revealObserver.observe(el)});requestScroll()}
+ function mountProducts(){revealObserver.disconnect();photoObserver.disconnect();sceneObserver.disconnect();visibleMotion.clear();visibleScenes.clear();document.querySelectorAll('.dish-scene').forEach((scene,i)=>{scene.classList.add('reference-scroll');scene.style.setProperty('--reveal-side',i%2?1:-1);scene.style.setProperty('--plate-reveal',reduced?'1':'0');scene.style.setProperty('--copy-reveal',reduced?'1':'0');scene.style.setProperty('--price-reveal',reduced?'1':'0');sceneObserver.observe(scene)});document.querySelectorAll('[data-dish-motion],[data-drink-motion]').forEach(el=>photoObserver.observe(el));document.querySelectorAll('.scene-heading,.scene-copy,.section-intro,.scene-visual,.scene-thumbs').forEach(el=>{el.classList.add('content-reveal');if(reduced)el.classList.add('is-revealed');else revealObserver.observe(el)});requestScroll()}
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&scrollFrame){cancelAnimationFrame(scrollFrame);scrollFrame=0}else requestScroll()});
  function setMoney(el,value){if(!el)return;const state=moneyStates.get(el);if(state?.frame)cancelAnimationFrame(state.frame);if(reduced||!state){el.textContent=money(value);moneyStates.set(el,{value,frame:0});return}const from=state.value;if(Math.abs(from-value)<.001){el.textContent=money(value);return}const start=performance.now(),next={value:from,frame:0};moneyStates.set(el,next);function tick(now){const p=Math.min(1,(now-start)/320),eased=1-Math.pow(1-p,3);next.value=from+(value-from)*eased;el.textContent=money(next.value);if(p<1)next.frame=requestAnimationFrame(tick);else{el.textContent=money(value);next.value=value;next.frame=0}}next.frame=requestAnimationFrame(tick)}
  function openProduct(){const details=document.getElementById('productDetails');const content=details.querySelectorAll('.detail-heading,.detail-main>.product-en,.detail-description,.allergen-line,.option-group,.notes-label');content.forEach((el,i)=>animate(el,[{opacity:0,transform:'translateY(13px)'},{opacity:1,transform:'none'}],{duration:420,delay:Math.min(i*45,225),fill:'backwards',easing:'cubic-bezier(.2,.8,.2,1)'}))}
