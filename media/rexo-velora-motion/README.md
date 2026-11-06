@@ -2,9 +2,9 @@
 
 Arabic portrait advertisement, 57.63 seconds, 1080×1920, 30 fps. Uses the supplied narration at its original speed and genuine screenshots/assets from the VELORA menu.
 
-[Download MP4](https://github.com/leo-sys-yassin/resturants/releases/download/rexo-velora-motion-20261106/Rexo_Velora_Motion_1080x1920.mp4)
+[Download MP4](https://github.com/leo-sys-yassin/resturants/raw/refs/heads/main/media/rexo-velora-motion/Rexo_Velora_Motion_1080x1920.mp4)
 
-[Download complete editable project](https://github.com/leo-sys-yassin/resturants/releases/download/rexo-velora-motion-20261106/Rexo_Velora_Editable_Project.zip)
+[Download complete editable project](https://github.com/leo-sys-yassin/resturants/raw/refs/heads/main/media/rexo-velora-motion/Rexo_Velora_Editable_Project.zip)
 
 The ZIP includes assets, fonts and licenses, original menu and narration, Python renderer, music generator, captions, timeline and technical inspection data. Extract the full ZIP before running the scripts; assets are not duplicated in this directory.
 
