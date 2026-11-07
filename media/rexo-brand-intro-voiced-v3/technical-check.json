@@ -1,0 +1,33 @@
+{
+  "full_decode": "pass",
+  "source_audio_seconds": 56.72,
+  "export_audio_seconds": 56.7466875,
+  "zero_lag_waveform_correlation": 0.9797770720498927,
+  "best_offset_samples_at_16k": 0,
+  "original_audio_speed": 1.0,
+  "peak_after_decode": 0.857036292552948,
+  "direct_listening_review": "unavailable",
+  "streams": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "56.733333"
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0",
+        "duration": "56.813000"
+      }
+    ],
+    "format": {
+      "duration": "56.813000",
+      "size": "5116754"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "duration": 56.733333333333334,
+  "original_audio_duration": 56.72,
+  "fps": 30,
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "audio_playback_rate": 1.0,
+  "audio_processing": "loudness normalization only; no music",
+  "scenes": [
+    [
+      0,
+      3.08,
+      "idea"
+    ],
+    [
+      3.08,
+      4.94,
+      "who"
+    ],
+    [
+      4.94,
+      8.34,
+      "chat"
+    ],
+    [
+      8.34,
+      13.12,
+      "chaos"
+    ],
+    [
+      13.12,
+      16.5,
+      "brand"
+    ],
+    [
+      16.5,
+      20.28,
+      "web"
+    ],
+    [
+      20.28,
+      23.34,
+      "custom"
+    ],
+    [
+      23.34,
+      28.7,
+      "order"
+    ],
+    [
+      28.7,
+      35.06,
+      "ai"
+    ],
+    [
+      35.06,
+      39.14,
+      "connect"
+    ],
+    [
+      39.14,
+      45.74,
+      "why"
+    ],
+    [
+      45.74,
+      49.84,
+      "process"
+    ],
+    [
+      49.84,
+      56.733333333333334,
+      "end"
+    ]
+  ],
+  "alignment": "automatic word alignment; key brand and service cues mapped to original recording",
+  "listening_review": "not_performed"
+}
