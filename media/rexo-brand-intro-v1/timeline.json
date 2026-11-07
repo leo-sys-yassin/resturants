@@ -1,0 +1,97 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "duration": 60,
+  "audio": "none",
+  "timing": "provisional silent editorial pacing; re-time to supplied narration later",
+  "style": "Editorial modular motion inspired by brand pixel geometry. Forest green, beige, ivory, subtle teal. Cairo/Montserrat.",
+  "palette": {
+    "forest": "#35584f",
+    "deep": "#082e2c",
+    "beige": "#cfb89f",
+    "ivory": "#f4f0e8",
+    "teal": "#67b7a4"
+  },
+  "scenes": [
+    [
+      0,
+      4,
+      "idea",
+      "فكرتك تستاهل",
+      "حضور رقمي يليق فيها"
+    ],
+    [
+      4,
+      8,
+      "brand",
+      "من الفكرة",
+      "للإطلاق"
+    ],
+    [
+      8,
+      14,
+      "web",
+      "مواقع إلكترونية",
+      "تعرّف الناس على شغلك"
+    ],
+    [
+      14,
+      19,
+      "app",
+      "تطبيقات موبايل",
+      "خدماتك أقرب لزبونك"
+    ],
+    [
+      19,
+      25,
+      "custom",
+      "برمجيات مخصّصة",
+      "على مقاس مشروعك"
+    ],
+    [
+      25,
+      31,
+      "order",
+      "أنظمة طلبات وإدارة",
+      "ترتيب أوضح. متابعة أسهل."
+    ],
+    [
+      31,
+      37,
+      "ai",
+      "ذكاء اصطناعي وأتمتة",
+      "وقت أقل للمهام المتكرّرة"
+    ],
+    [
+      37,
+      43,
+      "connect",
+      "حلول بتشتغل مع بعض",
+      "ربط الأنظمة وتبادل البيانات"
+    ],
+    [
+      43,
+      48,
+      "difference",
+      "شو بيميّز طريقتنا؟",
+      "نبدأ من احتياج مشروعك"
+    ],
+    [
+      48,
+      54,
+      "journey",
+      "فريق واحد",
+      "من فكرتك لمنتجك الرقمي"
+    ],
+    [
+      54,
+      60,
+      "close",
+      "جاهز تبدأ؟",
+      "احكيلنا عن فكرتك"
+    ]
+  ],
+  "claims": "Service categories and concept-to-launch proposition supplied in Instagram screenshots. Benefits qualitative; no competitor ranking, quantified results or guarantees.",
+  "logo": "Reference-based extraction prepared with image generation; original references remain authoritative."
+}
