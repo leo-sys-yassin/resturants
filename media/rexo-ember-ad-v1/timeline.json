@@ -1,0 +1,121 @@
+{
+  "duration": 53,
+  "fps": 30,
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "audio": "none; narration supplied separately",
+  "timing": "estimated silent draft; align to actual recording when supplied",
+  "source_menu_commit": "de6450b",
+  "scenes": [
+    {
+      "start_frame": 0,
+      "settled_frame": 15,
+      "hold_end_frame": 120,
+      "end_frame": 120,
+      "cue_type": "provisional",
+      "id": "hook",
+      "message": "الاختيار يبدأ بعين الزبون"
+    },
+    {
+      "start_frame": 120,
+      "settled_frame": 135,
+      "hold_end_frame": 210,
+      "end_frame": 210,
+      "cue_type": "provisional",
+      "id": "question",
+      "message": "هل المنيو يعطي الأطباق حقها؟"
+    },
+    {
+      "start_frame": 210,
+      "settled_frame": 225,
+      "hold_end_frame": 300,
+      "end_frame": 300,
+      "cue_type": "provisional",
+      "id": "rexo",
+      "message": "Rexo وتجربة التصفح"
+    },
+    {
+      "start_frame": 300,
+      "settled_frame": 315,
+      "hold_end_frame": 480,
+      "end_frame": 480,
+      "cue_type": "provisional",
+      "id": "demo",
+      "message": "عرض منيو EMBER وحركة التمرير"
+    },
+    {
+      "start_frame": 480,
+      "settled_frame": 495,
+      "hold_end_frame": 660,
+      "end_frame": 660,
+      "cue_type": "provisional",
+      "id": "categories",
+      "message": "البرغر ثم المشروبات"
+    },
+    {
+      "start_frame": 660,
+      "settled_frame": 675,
+      "hold_end_frame": 750,
+      "end_frame": 750,
+      "cue_type": "provisional",
+      "id": "details",
+      "message": "تفاصيل الطبق"
+    },
+    {
+      "start_frame": 750,
+      "settled_frame": 765,
+      "hold_end_frame": 900,
+      "end_frame": 900,
+      "cue_type": "provisional",
+      "id": "options",
+      "message": "الإضافات المتاحة وإضافة الاختيار"
+    },
+    {
+      "start_frame": 900,
+      "settled_frame": 915,
+      "hold_end_frame": 1050,
+      "end_frame": 1050,
+      "cue_type": "provisional",
+      "id": "cart",
+      "message": "تغيير الكمية والمجموع"
+    },
+    {
+      "start_frame": 1050,
+      "settled_frame": 1065,
+      "hold_end_frame": 1170,
+      "end_frame": 1170,
+      "cue_type": "provisional",
+      "id": "language",
+      "message": "التبديل للإنجليزي"
+    },
+    {
+      "start_frame": 1170,
+      "settled_frame": 1185,
+      "hold_end_frame": 1290,
+      "end_frame": 1290,
+      "cue_type": "provisional",
+      "id": "identity",
+      "message": "هوية المطعم"
+    },
+    {
+      "start_frame": 1290,
+      "settled_frame": 1305,
+      "hold_end_frame": 1410,
+      "end_frame": 1410,
+      "cue_type": "provisional",
+      "id": "hospitality",
+      "message": "الطعم والضيافة والانطباع الأول"
+    },
+    {
+      "start_frame": 1410,
+      "settled_frame": 1425,
+      "hold_end_frame": 1590,
+      "end_frame": 1590,
+      "cue_type": "provisional",
+      "id": "end",
+      "message": "Rexo والتواصل"
+    }
+  ]
+}
