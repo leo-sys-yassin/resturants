@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "duration": 66,
+  "audio": "none",
+  "timing": "provisional pending user narration",
+  "scenes": [
+    [
+      0,
+      4,
+      "idea"
+    ],
+    [
+      4,
+      7,
+      "who"
+    ],
+    [
+      7,
+      14,
+      "chat"
+    ],
+    [
+      14,
+      17,
+      "chaos"
+    ],
+    [
+      17,
+      22,
+      "brand"
+    ],
+    [
+      22,
+      28,
+      "web"
+    ],
+    [
+      28,
+      33,
+      "custom"
+    ],
+    [
+      33,
+      38,
+      "order"
+    ],
+    [
+      38,
+      44,
+      "ai"
+    ],
+    [
+      44,
+      49,
+      "connect"
+    ],
+    [
+      49,
+      55,
+      "why"
+    ],
+    [
+      55,
+      60,
+      "process"
+    ],
+    [
+      60,
+      66,
+      "end"
+    ]
+  ],
+  "logo": "exact vector paths supplied in reference.html"
+}
