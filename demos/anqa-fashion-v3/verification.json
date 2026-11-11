@@ -1,0 +1,30 @@
+{
+  "passed": [
+    "Arabic is the default; embedded Arabic font loads; idle rendering stops completely",
+    "Rail drag, selection and quiet sway work; all hook contact gaps stay below one screen pixel",
+    "Garment rotation changes only the rigid 3D transform: vertex data, scale and texture remain identical; no morph targets",
+    "Human rotation preserves the same geometry, scale and fixed surface texture throughout the drag",
+    "All ten models work; Arabic/English details, colours, sizes, quantity, bag total, size guide and back navigation passed",
+    "Arabic search, language/cart persistence, keyboard rotation, and layouts at 1280\u00d7800, 1440\u00d7900, 1920\u00d71080 passed",
+    "Final single HTML works offline after one document load, with no network asset requests",
+    "Software GPU fallback uses reduced pixel ratio and disables MSAA; rendering pauses when the scene is offscreen",
+    "Reduced-motion preference snaps transitions correctly",
+    "Native scroll and rail dragging update positions directly; only release snapping uses spring motion"
+  ],
+  "metrics": {
+    "max_hook_gap_pixels": 0.2855700000000283,
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "software_gpu_interval_median_ms": 90.30000000074506,
+    "rail_draw_calls": 8,
+    "standalone_bytes": 8592577,
+    "previous_standalone_bytes": 30261274,
+    "reduction_percent": 71.6,
+    "initial_live3d_software_interval_ms": 170.09999999776483,
+    "initial_live3d_cpu_submit_p95_ms": 1.6000000014901161,
+    "idle_pixel_ratio": 1,
+    "moving_software_pixel_ratio": 0.6
+  },
+  "browser_errors": [],
+  "failed_responses": [],
+  "environment_note": "Chromium uses SwiftShader software rendering in this executor; frame timing is not a hardware GPU benchmark. file:// navigation is blocked by managed browser policy, so the self-contained HTML was served once over localhost then tested with networking offline."
+}

@@ -1,0 +1,17 @@
+{
+  "name": "anqa-fashion-v3",
+  "version": "1.0.0",
+  "description": "ANQA Arabic and English desktop storefront with rigid 3D views",
+  "scripts": {
+    "build": "esbuild app.js --bundle --minify --outfile=app.bundle.js --legal-comments=inline && python build.py",
+    "test": "python test_app.py"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "dependencies": {
+    "esbuild": "^0.25.11",
+    "three": "^0.180.0"
+  },
+  "private": true
+}
