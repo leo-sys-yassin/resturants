@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright,expect
 from pathlib import Path
 import json,time,statistics
-R=Path(__file__).parent;checks=[];errors=[];responses=[];metrics={}
+R=Path(__file__).parent;(R/'review').mkdir(exist_ok=True);checks=[];errors=[];responses=[];metrics={}
 with sync_playwright() as w:
  b=w.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--enable-unsafe-swiftshader']);c=b.new_context(viewport={'width':1440,'height':900});p=c.new_page();p.on('pageerror',lambda e:errors.append(str(e)));p.on('response',lambda r:responses.append(r.url) if r.status>=400 else None)
  p.goto('http://127.0.0.1:8913',wait_until='networkidle');p.wait_for_function('ANQA_DEBUG.engine?.hero && ANQA_DEBUG.engine.products.filter(Boolean).length===5');p.wait_for_timeout(1500);expect(p.locator('html')).to_have_attribute('lang','ar');expect(p.locator('#menuButton')).to_have_text('القائمة');assert p.evaluate('document.fonts.check("14px ANQAArabic")');assert not p.evaluate('ANQA_DEBUG.engine.rail.visible');p.screenshot(path=str(R/'review/hero-ar-final.png'))

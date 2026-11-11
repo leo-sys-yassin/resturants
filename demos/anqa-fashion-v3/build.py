@@ -14,7 +14,7 @@ bundle='\n'.join(line.rstrip() for line in (R/'app.bundle.js').read_text().split
 (R/'app.bundle.js').write_text(bundle)
 html=(R/'index.html').read_text().replace('<link rel="stylesheet" href="style.css">','<style>'+css+'</style>').replace('<script src="data.js"></script>','<script>'+data_js(embedded).replace('</','<\\/')+'</script>').replace('<script src="app.bundle.js"></script>','<script>'+(R/'app.bundle.js').read_text()+'</script>')
 (R/'ANQA_v3.html').write_text(html)
-files=['index.html','style.css','app.js','engine.js','i18n.js','app.bundle.js','data.js','data.json','build.py','package.json','package-lock.json','README.md','verification.json','test_app.py','preview.jpg','THREE-LICENSE.txt']
+files=['index.html','style.css','app.js','engine.js','i18n.js','app.bundle.js','data.js','data.json','build.py','package.json','package-lock.json','README.md','verification.json','test_app.py','test_360.py','preview.jpg','THREE-LICENSE.txt']
 with zipfile.ZipFile(R/'ANQA_Desktop_v3.zip','w',zipfile.ZIP_DEFLATED) as z:
  z.write(R/'ANQA_v3.html','ANQA_v3.html')
  z.writestr('START_HERE.txt','ANQA — أناقة\nافتح ANQA_v3.html لمعاينة الموقع مباشرة.\nالملف يتضمن كل شيء ولا يحتاج إنترنت.\nمجلد ANQA_Source يحتوي نسخة المشروع القابلة للتعديل.\n')

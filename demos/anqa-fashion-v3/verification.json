@@ -9,7 +9,9 @@
     "Final single HTML works offline after one document load, with no network asset requests",
     "Software GPU fallback uses reduced pixel ratio and disables MSAA; rendering pauses when the scene is offscreen",
     "Reduced-motion preference snaps transitions correctly",
-    "Native scroll and rail dragging update positions directly; only release snapping uses spring motion"
+    "Native scroll and rail dragging update positions directly; only release snapping uses spring motion",
+    "product: two full 360\u00b0 horizontal mouse drags preserve object identity, all vertex data, textures and scale; vertical dragging causes no tilt or rotation",
+    "model: two full 360\u00b0 horizontal mouse drags preserve object identity, all vertex data, textures and scale; vertical dragging causes no tilt or rotation"
   ],
   "metrics": {
     "max_hook_gap_pixels": 0.2855700000000283,
@@ -26,5 +28,6 @@
   },
   "browser_errors": [],
   "failed_responses": [],
-  "environment_note": "Chromium uses SwiftShader software rendering in this executor; frame timing is not a hardware GPU benchmark. file:// navigation is blocked by managed browser policy, so the self-contained HTML was served once over localhost then tested with networking offline."
+  "environment_note": "Chromium uses SwiftShader software rendering in this executor; frame timing is not a hardware GPU benchmark. file:// navigation is blocked by managed browser policy, so the self-contained HTML was served once over localhost then tested with networking offline.",
+  "validated_html_sha256": "de3e3473a87794722461f926fbe941ba3a771438115f4dfe52ca1f8af5c7390a"
 }
