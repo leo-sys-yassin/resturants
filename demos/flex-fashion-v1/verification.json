@@ -1,0 +1,10 @@
+{
+  "passed": [
+    "All 40 genuine directional assets load and change per product/mode/view",
+    "Scroll, spring rail, pointer drag, swatches, sizing, quantity, cart, persistence, search, size guide and modal dismissal passed",
+    "1280\u00d7800, 1440\u00d7900, 1920\u00d71080 and reduced motion passed; zero browser errors",
+    "Standalone HTML served once then browser offline: embedded assets, model back and cart passed; zero external asset requests"
+  ],
+  "browser_errors": [],
+  "environment_note": "Direct file:// navigation is blocked by this managed Chromium policy; self-contained HTML tested over localhost with all asset requests blocked and browser offline after initial document load."
+}
