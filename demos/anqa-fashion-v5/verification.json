@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "All 20 v2 photographic views load for all five garments; no photo blending or 3D human distortion.",
+    "Arabic Amiri and Plex fonts load; English view labels update.",
+    "Side home/size-guide buttons are separate and usable.",
+    "Garment 3D rotation, sizes, bag, close and scroll restoration pass.",
+    "Model image and product card do not overlap at 1280, 1440 and 1920 widths.",
+    "Standalone HTML works offline after document load, including photographic views and embedded fonts; side navigation is below the rail."
+  ],
+  "errors": [],
+  "limitations": [
+    "Human view is photography with four explicit view buttons, not a continuous 3D human or animated hands.",
+    "Garment meshes remain the existing approximate 3D assets."
+  ],
+  "validated_html_sha256": "b31b2a67e21eecb80a1d46759dd90583e369ba04fe2ced0f8fa2139d769edbde"
+}
