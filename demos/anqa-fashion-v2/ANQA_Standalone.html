@@ -68,7 +68,7 @@ function render(time){
   if(isActive){opacity=draw*(1-d);x=mix(x,W*.34,d);y=mix(y,H*.16,d);}
   if(!reduce){node.velocity+=(-node.angle*.065-clamp(railAcceleration*20,-.25,.25))*dt;node.velocity*=Math.pow(.72,dt);node.angle=clamp(node.angle+node.velocity*dt,-1.8,1.8);}else node.angle=0;
   const yaw=delta<0?Math.min(abs/1.05,1)*90:-Math.min(abs/1.05,1)*90;node.viewer.draw(yaw);const hookX=CAT[i].sequences?.product.hookX?.[node.viewer.frame]??192;node.body.style.transform=`translateX(${(192-hookX)*w/384}px) rotateZ(${node.angle*(1-d)}deg)`;node.el.style.width=w+'px';node.el.style.height=h+'px';node.el.style.transform=`translate3d(${x-w/2}px,${y}px,0) scale(${scale})`;node.el.style.opacity=opacity;node.el.style.zIndex=isActive?6:Math.max(1,4-Math.round(abs));node.el.style.pointerEvents=opacity>.45&&!detailOpen?'auto':'none';node.el.setAttribute('aria-pressed',String(isActive));node.el.tabIndex=isActive?0:-1;node.shadow.style.opacity=draw*(1-d)*.55;
-  
+
  }
  if(detailOpen||closing){let angle=rotation.position;if(modelIntro===-1&&detailViewer.ready)modelIntro=time;if(modelIntro>0&&!viewerPointer&&!reduce){const elapsed=(time-modelIntro)/1000;if(elapsed<2.4)angle+=Math.sin(clamp(elapsed/2.4)*Math.PI)*45;else modelIntro=0;}detailViewer.draw(angle);const deg=Math.round(wrap(angle,360));$('#rotationAngle').textContent=String(deg).padStart(3,'0')+'°';$('#rotationMarker').style.left=(wrap(angle,360)/360*100)+'%';$('#turntableCanvas').setAttribute('aria-valuenow',deg);$('#viewerLoading').hidden=detailViewer.ready;}
  requestAnimationFrame(render)
