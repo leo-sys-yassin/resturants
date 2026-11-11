@@ -1,0 +1,32 @@
+{
+  "per_look_arrays": "5 distinct lists",
+  "piece_counts": [
+    3,
+    3,
+    4,
+    3,
+    3
+  ],
+  "viewports": [
+    [
+      1440,
+      850
+    ],
+    [
+      1024,
+      650
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "checks": [
+    "all per-look images loaded",
+    "piece details",
+    "size and quantity persistence",
+    "product next/previous",
+    "full-look cart total"
+  ],
+  "catalog_photos": "sample styling, not verified matches to photographed clothes"
+}

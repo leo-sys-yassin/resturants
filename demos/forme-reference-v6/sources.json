@@ -1,0 +1,16 @@
+{
+  "hero": "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "people": {
+    "person-0.webp": "https://images.unsplash.com/photo-1617137968427-85924c800a22",
+    "person-1.webp": "https://images.unsplash.com/photo-1516826957135-700dedea698c",
+    "person-2.webp": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+    "person-3.webp": "https://images.unsplash.com/photo-1539008835657-9e8e9680c956",
+    "person-4.webp": "https://images.unsplash.com/photo-1496217590455-aa63a8350eea"
+  },
+  "products": "https://github.com/keikaavousi/fake-store-api/tree/master/public/img",
+  "shoe": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/1.webp",
+  "bags": [
+    "https://cdn.dummyjson.com/product-images/womens-bags/blue-women%27s-handbag/1.webp",
+    "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/1.webp"
+  ]
+}
