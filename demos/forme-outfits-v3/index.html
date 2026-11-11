@@ -1,0 +1,198 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#efeee9"><title>FORME — اختار طقمك</title><style>
+@font-face{font-family:Cairo;src:url('assets/Cairo.ttf') format('truetype');font-display:swap}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#efeee9;color:#24251f;font-family:Cairo,Arial,sans-serif}button,select{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}button:disabled{opacity:.35;cursor:default}button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid #527052;outline-offset:4px}header{height:80px;padding:0 3.5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #d9d8cf}.wordmark{font:900 25px Arial;letter-spacing:-2px}.nav-middle{font-size:11px;color:#74776b}.bag-trigger{border:1px solid #c3c5b8;border-radius:30px;padding:9px 20px;font-size:12px}.bag-trigger b{background:#25291f;color:#fff;display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:50%;font:10px Arial;margin-right:8px}main{max-width:1900px;margin:auto;padding:35px 3.5% 25px}.title-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px}.eyebrow{font-size:10px;letter-spacing:1px;color:#777c6e}.title-row h1{font-size:clamp(28px,3.1vw,52px);font-weight:750;letter-spacing:-1.5px;line-height:1.3;margin:8px 0}.title-row p{font-size:12px;color:#717768;margin:10px 0}.look-position{font:12px Arial;letter-spacing:2px;align-self:center}.layout{direction:ltr;display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:25px}.runway-wrap{min-width:0;position:relative}.runway{height:620px;min-height:500px;position:relative;overflow:hidden;touch-action:pan-y;cursor:grab;isolation:isolate;direction:ltr}.runway:active{cursor:grabbing}.person{position:absolute;left:50%;bottom:42px;height:88%;width:25%;padding:0;transform:translateX(calc(-50% + var(--x)*88% + var(--drag,0px))) scale(var(--s));transform-origin:50% 100%;opacity:var(--o);transition:transform .85s cubic-bezier(.18,.83,.25,1),opacity .65s;will-change:transform;z-index:var(--z)}.runway.dragging .person{transition:none}.person img{width:100%;height:100%;object-fit:contain;object-position:bottom;user-select:none;-webkit-user-drag:none;filter:saturate(var(--sat));transition:filter .65s;pointer-events:none}.person:after{content:'';position:absolute;bottom:-8px;left:12%;width:76%;height:10px;background:radial-gradient(ellipse,#1112,transparent 70%);z-index:-1}.person.active:before{content:'';width:4px;height:4px;border-radius:50%;background:#5b6f50;position:absolute;bottom:-27px;left:50%}.stage-guide{position:absolute;left:0;right:0;bottom:26px;text-align:center;font-size:9px;color:#818879;letter-spacing:.7px;pointer-events:none}.controls{display:flex;align-items:center;gap:15px;direction:ltr;margin:5px 0 0}.arrow{font:26px Arial;padding:5px 10px}.look-tabs{display:flex;flex:1;gap:14px;min-width:0}.look-tab{border-top:1px solid #c8cbbf;padding:12px 0 0;flex:1;text-align:left;color:#8c9283;min-width:0;font:9px Arial;line-height:1.8;position:relative}.look-tab:before{content:'';position:absolute;top:-1px;left:0;width:0;height:2px;background:#3b4a32;transition:width .6s}.look-tab.active{color:#242b20}.look-tab.active:before{width:100%}.look-tab small{display:block;font:10px Cairo;margin-top:3px}.sidebar{direction:rtl;border-left:1px solid #d1d4c7;padding:14px 0 0 24px}.outfit-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:12px;border-bottom:1px solid #d1d4c7}.outfit-head h2{font-size:18px;margin:0;font-weight:700}.outfit-head span{font-size:10px;color:#818877}.piece{display:grid;grid-template-columns:78px 1fr;gap:15px;padding:15px 0;border-bottom:1px solid #d1d4c7;transition:background .25s}.piece:hover{background:#e8e9df}.piece-detail{position:relative;width:78px;height:108px;background:#e7e8df;border-radius:3px;overflow:hidden;padding:6px}.piece-detail img{width:100%;height:100%;object-fit:contain}.piece-detail:after{content:'من الطقم';position:absolute;bottom:0;left:0;right:0;background:#e7e8dfd9;font-size:8px;text-align:center;color:#6f7763}.piece-main{min-width:0}.piece-title-row{display:flex;justify-content:space-between;gap:6px;align-items:center}.piece h3{font-size:12px;margin:0;font-weight:700;line-height:1.6}.price{font:11px Arial;white-space:nowrap}.piece-options{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:11px 0}.piece select{font-size:10px;max-width:88px;border:1px solid #bec4b3;background:transparent;border-radius:3px;padding:4px}.quantity{direction:ltr;display:inline-flex;align-items:center;border:1px solid #bec4b3;border-radius:4px;overflow:hidden}.quantity button{width:26px;height:26px;font:15px Arial}.quantity output{min-width:23px;text-align:center;font:11px Arial}.add-piece{width:100%;text-align:right;padding:0;font-size:10px;color:#4d6541;display:flex;justify-content:space-between;align-items:center}.add-piece span:last-child{font:16px Arial}.whole{padding:18px 0 0}.whole-top{display:flex;align-items:center;justify-content:space-between;font-size:11px}.whole-top label{display:flex;align-items:center;gap:8px}.total{font:700 19px Arial}.whole-quantity{display:flex;justify-content:space-between;align-items:center;margin:16px 0;font-size:11px}.primary{display:flex;justify-content:space-between;align-items:center;width:100%;background:#283020;color:white;padding:17px 18px;font:12px Cairo;transition:background .2s}.primary:hover{background:#4e6240}.total-note{font-size:9px;color:#818877;line-height:1.8;margin:12px 0}.section-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #d1d4c7;margin-top:30px;padding-top:15px;font-size:9px;color:#8b9080}.photo-note{font-size:9px;color:#8b9080;max-width:700px;line-height:1.7}.scrim{position:fixed;inset:0;z-index:20;background:#22281b55;backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}.scrim.open{opacity:1;visibility:visible}.cart{position:fixed;top:0;right:0;width:min(470px,100%);bottom:0;z-index:21;background:#f4f4ed;padding:25px;display:flex;flex-direction:column;transform:translateX(105%);transition:transform .5s cubic-bezier(.18,.83,.25,1)}.cart.open{transform:translateX(0)}.cart-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid #d1d4c7}.cart-head h2{margin:0;font-size:23px}.cart-body{flex:1;overflow:auto}.cart-item{display:grid;grid-template-columns:70px 1fr 22px;gap:18px;align-items:center;border-bottom:1px solid #d1d4c7;padding:18px 0}.cart-item img{width:70px;height:95px;object-fit:contain}.cart-item h3{font-size:12px;margin:0 0 5px}.cart-item p{font-size:9px;color:#7b8370;margin:5px 0}.cart-item .price{margin:8px 0}.cart-summary{display:flex;justify-content:space-between;align-items:center;padding:22px 0}.cart-summary b{font:700 22px Arial}.empty{text-align:center;font-size:12px;padding:70px 0;color:#717d62}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,130px);background:#283020;color:white;padding:14px 24px;font-size:12px;z-index:30;border-radius:4px;transition:transform .4s;max-width:90%;text-align:center}.toast.on{transform:translate(-50%,0)}.loading{opacity:0}@media(min-width:1700px){.runway{height:720px}}@media(max-width:1050px){.layout{grid-template-columns:minmax(0,1fr) 310px;gap:15px}.sidebar{padding-left:15px}.runway{height:650px}.person{width:37%;transform:translateX(calc(-50% + var(--x)*82% + var(--drag,0px))) scale(var(--s))}.piece{grid-template-columns:65px 1fr;gap:10px}.piece-detail{width:65px}.nav-middle{display:none}}@media(max-width:760px){header{height:65px}main{padding:22px 5%}.title-row p{max-width:260px;font-size:11px}.title-row h1{font-size:31px}.look-position{font-size:10px}.layout{display:flex;flex-direction:column}.runway{height:520px;min-height:400px}.person{width:55%;height:90%;transform:translateX(calc(-50% + var(--x)*86% + var(--drag,0px))) scale(var(--s))}.person:not(.active){opacity:.55}.look-tabs{gap:10px}.look-tab{font-size:8px}.look-tab small{font-size:8px;white-space:nowrap}.arrow{padding:5px;font-size:23px}.controls{gap:10px}.sidebar{border-left:0;border-top:1px solid #d1d4c7;padding:25px 0 0;margin-top:20px}.outfit-head h2{font-size:21px}.piece{grid-template-columns:88px 1fr;padding:18px 0}.piece-detail{width:88px;height:120px}.piece h3{font-size:14px}.piece .price{font-size:13px}.piece select{font-size:12px;max-width:110px}.piece-options{margin:14px 0}.add-piece{font-size:12px}.quantity button{width:30px;height:30px}.total-note{font-size:10px}.section-foot{align-items:flex-start;gap:20px}.photo-note{max-width:260px}.wordmark{font-size:22px}.whole-quantity{font-size:12px}.primary{font-size:13px;padding:18px}.stage-guide{font-size:9px}.title-row{margin-bottom:0}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before{transition-duration:.01ms!important}}
+</style></head><body>
+<header><span class="wordmark" dir="ltr">FORME.</span><span class="nav-middle">خمس إطلالات حقيقية. كل قطعة باختيارك.</span><button class="bag-trigger" id="openCart">حقيبة التسوّق <b id="count">0</b></button></header>
+<main><div class="title-row"><div><span class="eyebrow" dir="ltr">THE COMPLETE LOOK / 2026</span><h1>اختار إطلالتك.</h1><p>الطقم كامل، أو قطعة بتحبّها. نسّق على ذوقك.</p></div><span class="look-position" id="position" dir="ltr">01 / 05</span></div><div class="layout"><div class="runway-wrap"><div class="runway" id="runway" role="region" aria-roledescription="عارض إطلالات" aria-label="الأطقم؛ اسحب أو استخدم الأسهم" tabindex="0"></div><div class="controls"><button class="arrow" id="prev" aria-label="الإطلالة السابقة">←</button><div class="look-tabs" id="tabs"></div><button class="arrow" id="next" aria-label="الإطلالة التالية">→</button></div></div><aside class="sidebar" aria-label="قطع الطقم الحالي"><div class="outfit-head"><h2 id="lookTitle"></h2><span id="pieceCount"></span></div><div id="pieces"></div><div class="whole"><div class="whole-top"><span>مجموع القطع المختارة</span><strong class="total" id="outfitTotal" dir="ltr"></strong></div><div class="whole-quantity"><label>عدد الأطقم</label><div class="quantity"><button id="outfitMinus" aria-label="تقليل عدد الأطقم">−</button><output id="outfitQty">1</output><button id="outfitPlus" aria-label="زيادة عدد الأطقم">+</button></div></div><button class="primary" id="addOutfit"><span>أضف الطقم كاملًا</span><span id="outfitButtonTotal" dir="ltr"></span></button><p class="total-note">المجموع حسب مقاس وكمية كل قطعة. تقدر تضيف أي قطعة لحالها من زر الإضافة تحتها.</p></div></aside></div><div class="section-foot"><p class="photo-note">صور لأشخاص حقيقيين. صور القطع تفاصيل من نفس الملابس الظاهرة على الشخص. المقاسات والأسعار تجريبية للعرض.</p><span dir="ltr">FORME / OUTFIT STUDIO</span></div></main>
+<div class="scrim" id="scrim"></div><aside class="cart" id="cart" role="dialog" aria-modal="true" aria-label="حقيبة التسوق"><div class="cart-head"><h2>اختياراتك.</h2><button id="closeCart" aria-label="إغلاق الحقيبة">إغلاق ×</button></div><div class="cart-body" id="cartBody"></div><div class="cart-summary"><span>المجموع</span><b id="cartTotal" dir="ltr">$0.00</b></div><button class="primary" id="checkout">متابعة الطلب <span>←</span></button><p class="total-note">واجهة ديمو؛ الطلب والدفع غير موصولين بمتجر.</p></aside><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const LOOKS=[
+  {
+    "id": 0,
+    "name": "Solar set",
+    "ar": "إطلالة الشمس",
+    "description": "٣ قطع · هودي وبنطلون وبوت",
+    "image": "assets/model-0.webp",
+    "source": 0,
+    "pieces": [
+      {
+        "id": "l0-p0",
+        "name": "هودي قصير أصفر",
+        "price": 69,
+        "image": "assets/piece-0-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l0-p1",
+        "name": "بنطلون أصفر واسع",
+        "price": 89,
+        "image": "assets/piece-0-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l0-p2",
+        "name": "بوت كريمي",
+        "price": 119,
+        "image": "assets/piece-0-2.webp",
+        "kind": "shoe"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Off duty",
+    "ar": "إطلالة يومية",
+    "description": "٤ قطع · كنزة وجينز وحذاء وقبعة",
+    "image": "assets/model-5.webp",
+    "source": 5,
+    "pieces": [
+      {
+        "id": "l1-p0",
+        "name": "كنزة وردية فاتحة",
+        "price": 65,
+        "image": "assets/piece-1-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l1-p1",
+        "name": "جينز أزرق ممزّق",
+        "price": 95,
+        "image": "assets/piece-1-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l1-p2",
+        "name": "حذاء رياضي فاتح",
+        "price": 110,
+        "image": "assets/piece-1-2.webp",
+        "kind": "shoe"
+      },
+      {
+        "id": "l1-p3",
+        "name": "قبعة صوف سوداء",
+        "price": 25,
+        "image": "assets/piece-1-3.webp",
+        "kind": "hat"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Blue tailoring",
+    "ar": "إطلالة رسمية",
+    "description": "٤ قطع · جاكيت وقميص وبنطلون وحذاء",
+    "image": "assets/model-11.webp",
+    "source": 11,
+    "pieces": [
+      {
+        "id": "l2-p0",
+        "name": "جاكيت بدلة كحلي",
+        "price": 179,
+        "image": "assets/piece-2-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l2-p1",
+        "name": "قميص أبيض",
+        "price": 59,
+        "image": "assets/piece-2-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l2-p2",
+        "name": "بنطلون بدلة كحلي",
+        "price": 109,
+        "image": "assets/piece-2-2.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l2-p3",
+        "name": "حذاء جلدي بني",
+        "price": 139,
+        "image": "assets/piece-2-3.webp",
+        "kind": "shoe"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Graphic rhythm",
+    "ar": "إطلالة الخطوط",
+    "description": "٣ قطع · توب وبنطلون وحقيبة",
+    "image": "assets/model-1.webp",
+    "source": 1,
+    "pieces": [
+      {
+        "id": "l3-p0",
+        "name": "توب فاتح دون أكمام",
+        "price": 49,
+        "image": "assets/piece-3-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l3-p1",
+        "name": "بنطلون واسع مخطّط",
+        "price": 99,
+        "image": "assets/piece-3-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l3-p2",
+        "name": "حقيبة صغيرة حمراء",
+        "price": 75,
+        "image": "assets/piece-3-2.webp",
+        "kind": "bag"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "City in blue",
+    "ar": "إطلالة المدينة",
+    "description": "٤ قطع · معطف وتنورة وبوت وحقيبة",
+    "image": "assets/model-7.webp",
+    "source": 7,
+    "pieces": [
+      {
+        "id": "l4-p0",
+        "name": "معطف أزرق طويل",
+        "price": 189,
+        "image": "assets/piece-4-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l4-p1",
+        "name": "تنورة زرقاء",
+        "price": 85,
+        "image": "assets/piece-4-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l4-p2",
+        "name": "بوت أبيض طويل",
+        "price": 129,
+        "image": "assets/piece-4-2.webp",
+        "kind": "shoe"
+      },
+      {
+        "id": "l4-p3",
+        "name": "حقيبة كتف وردية",
+        "price": 89,
+        "image": "assets/piece-4-3.webp",
+        "kind": "bag"
+      }
+    ]
+  }
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],money=n=>'$'+n.toFixed(2),pad=n=>String(n).padStart(2,'0');let index=0,cart=[];const selections=LOOKS.map(l=>({outfitQty:1,pieces:l.pieces.map(p=>({qty:1,size:p.kind==='shoe'?'39':p.kind==='bag'||p.kind==='hat'?'واحد':'M'}))}));
+$('#runway').innerHTML=LOOKS.map((l,i)=>`<button class="person" data-look="${i}" aria-label="اختيار ${l.ar}"><img src="${l.image}" alt="شخص حقيقي يرتدي ${l.ar}" draggable="false"></button>`).join('')+'<div class="stage-guide">اسحب لتبديل الإطلالة · أو اختار الشخص</div>';
+$('#tabs').innerHTML=LOOKS.map((l,i)=>`<button class="look-tab" data-look="${i}">${pad(i+1)}<br>${l.name}<small>${l.ar}</small></button>`).join('');
+function options(p,value){let arr=p.kind==='shoe'?['37','38','39','40','41','42','43','44']:['bag','hat'].includes(p.kind)?['واحد']:['XS','S','M','L','XL'];return arr.map(v=>`<option ${v===value?'selected':''}>${v}</option>`).join('')}
+function renderLook(i){index=(i+LOOKS.length)%LOOKS.length;const l=LOOKS[index];$$('.person').forEach((p,j)=>{let d=(j-index+7)%5-2;p.style.setProperty('--x',d);p.style.setProperty('--s',d===0?1:.79);p.style.setProperty('--o',d===0?1:.76);p.style.setProperty('--sat',d===0?1:.75);p.style.setProperty('--z',3-Math.abs(d));p.classList.toggle('active',d===0);p.setAttribute('aria-pressed',String(d===0));p.tabIndex=d===0?0:-1});$$('.look-tab').forEach((p,j)=>{p.classList.toggle('active',j===index);p.setAttribute('aria-pressed',String(j===index))});$('#position').textContent=`${pad(index+1)} / 05`;$('#lookTitle').textContent=l.ar;$('#pieceCount').textContent=l.pieces.length+' قطع';$('#pieces').innerHTML=l.pieces.map((p,j)=>{const sel=selections[index].pieces[j];return `<article class="piece" data-piece="${j}"><div class="piece-detail"><img src="${p.image}" alt="تفصيل ${p.name} من الإطلالة"></div><div class="piece-main"><div class="piece-title-row"><h3>${p.name}</h3><span class="price" dir="ltr">${money(p.price)}</span></div><div class="piece-options"><select data-size="${j}" aria-label="مقاس ${p.name}">${options(p,sel.size)}</select><div class="quantity"><button data-qty="${j}" data-change="-1" aria-label="تقليل كمية ${p.name}">−</button><output data-output="${j}">${sel.qty}</output><button data-qty="${j}" data-change="1" aria-label="زيادة كمية ${p.name}">+</button></div></div><button class="add-piece" data-add="${j}"><span>أضف القطعة للحقيبة</span><span>+</span></button></div></article>`}).join('');updateTotals()}
+function updateTotals(){const s=selections[index],l=LOOKS[index],n=l.pieces.reduce((a,p,j)=>a+p.price*s.pieces[j].qty,0);$('#outfitTotal').textContent=money(n);$('#outfitQty').textContent=s.outfitQty;$('#outfitButtonTotal').textContent=money(n*s.outfitQty);$('#outfitMinus').disabled=s.outfitQty<=1;$('#outfitPlus').disabled=s.outfitQty>=20;$$('[data-qty]').forEach(b=>{const q=s.pieces[+b.dataset.qty].qty;b.disabled=+b.dataset.change<0?q<=1:q>=20})}
+$('#next').onclick=()=>renderLook(index+1);$('#prev').onclick=()=>renderLook(index-1);$('#tabs').onclick=e=>{const b=e.target.closest('[data-look]');if(b)renderLook(+b.dataset.look)};let start=null,dragged=false,skipClick=false;const stage=$('#runway');stage.onpointerdown=e=>{if(e.button!==0)return;start=e.clientX;dragged=false};stage.onpointermove=e=>{if(start===null)return;const d=e.clientX-start;if(Math.abs(d)>8){dragged=true;stage.classList.add('dragging');stage.style.setProperty('--drag',Math.max(-180,Math.min(180,d))+'px')}};function endDrag(e){if(start===null)return;const d=e.clientX-start;stage.classList.remove('dragging');stage.style.setProperty('--drag','0px');if(Math.abs(d)>45){renderLook(index+(d<0?1:-1));skipClick=true;setTimeout(()=>skipClick=false,80)}else if(dragged){skipClick=true;setTimeout(()=>skipClick=false,80)}start=null}window.addEventListener('pointerup',endDrag);stage.onpointercancel=()=>{start=null;stage.classList.remove('dragging');stage.style.setProperty('--drag','0px')};stage.onclick=e=>{if(skipClick)return;const b=e.target.closest('[data-look]');if(b)renderLook(+b.dataset.look)};stage.onkeydown=e=>{if(e.key==='ArrowRight'){e.preventDefault();renderLook(index+1)}if(e.key==='ArrowLeft'){e.preventDefault();renderLook(index-1)}};
+function toast(tx){$('#toast').textContent=tx;$('#toast').classList.add('on');clearTimeout(window.tt);window.tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}
+function addPiece(j,multiplier=1){const p=LOOKS[index].pieces[j],s=selections[index].pieces[j],key=p.id+'-'+s.size,found=cart.find(x=>x.key===key);if(found)found.qty+=s.qty*multiplier;else cart.push({...p,key,qty:s.qty*multiplier,size:s.size,look:LOOKS[index].ar})}
+$('#pieces').onclick=e=>{const q=e.target.closest('[data-qty]');if(q){const j=+q.dataset.qty,s=selections[index].pieces[j];s.qty=Math.max(1,Math.min(20,s.qty+(+q.dataset.change)));$(`[data-output="${j}"]`).textContent=s.qty;updateTotals();return}const b=e.target.closest('[data-add]');if(b){addPiece(+b.dataset.add);renderCart();toast('أُضيفت القطعة للحقيبة')}};$('#pieces').onchange=e=>{if(e.target.matches('[data-size]'))selections[index].pieces[+e.target.dataset.size].size=e.target.value};$('#outfitMinus').onclick=()=>{selections[index].outfitQty=Math.max(1,selections[index].outfitQty-1);updateTotals()};$('#outfitPlus').onclick=()=>{selections[index].outfitQty=Math.min(20,selections[index].outfitQty+1);updateTotals()};$('#addOutfit').onclick=()=>{LOOKS[index].pieces.forEach((p,j)=>addPiece(j,selections[index].outfitQty));renderCart();toast('أُضيف الطقم كاملًا بالمقاسات والكميات المختارة')};
+function renderCart(){$('#count').textContent=cart.reduce((a,p)=>a+p.qty,0);$('#cartBody').innerHTML=cart.length?cart.map((p,i)=>`<article class="cart-item"><img src="${p.image}" alt="${p.name}"><div><h3>${p.name}</h3><p>${p.look} · المقاس ${p.size}</p><div class="price" dir="ltr">${money(p.price*p.qty)}</div><div class="quantity"><button data-cart="${i}" data-change="-1" aria-label="تقليل ${p.name}">−</button><output>${p.qty}</output><button data-cart="${i}" data-change="1" aria-label="زيادة ${p.name}">+</button></div></div><button data-remove="${i}" aria-label="حذف ${p.name}">×</button></article>`).join(''):'<p class="empty">الحقيبة فاضية. اختار أول قطعة من طقمك.</p>';$('#cartTotal').textContent=money(cart.reduce((a,p)=>a+p.price*p.qty,0));$('#checkout').disabled=!cart.length}$('#cartBody').onclick=e=>{let b=e.target.closest('[data-remove]');if(b){cart.splice(+b.dataset.remove,1);renderCart();return}b=e.target.closest('[data-cart]');if(b){const j=+b.dataset.cart;cart[j].qty+=+b.dataset.change;if(cart[j].qty<1)cart.splice(j,1);renderCart()}};
+function closeCart(){$('#cart').classList.remove('open');$('#scrim').classList.remove('open');document.body.style.overflow='';$('#openCart').focus()}$('#openCart').onclick=()=>{$('#cart').classList.add('open');$('#scrim').classList.add('open');document.body.style.overflow='hidden';$('#closeCart').focus()};$('#closeCart').onclick=closeCart;$('#scrim').onclick=closeCart;$('#checkout').onclick=()=>toast('نسخة ديمو؛ الدفع والطلب غير موصولين');document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#cart.open'))closeCart();if(e.key==='Tab'&&$('#cart.open')){const a=[...$('#cart').querySelectorAll('button:not(:disabled)')];if(e.shiftKey&&document.activeElement===a[0]){e.preventDefault();a.at(-1).focus()}else if(!e.shiftKey&&document.activeElement===a.at(-1)){e.preventDefault();a[0].focus()}}});renderLook(0);renderCart();
+</script></body></html>

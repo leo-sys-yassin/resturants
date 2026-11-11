@@ -1,0 +1,178 @@
+[
+  {
+    "id": 0,
+    "name": "Solar set",
+    "ar": "إطلالة الشمس",
+    "description": "٣ قطع · هودي وبنطلون وبوت",
+    "image": "assets/model-0.webp",
+    "source": 0,
+    "pieces": [
+      {
+        "id": "l0-p0",
+        "name": "هودي قصير أصفر",
+        "price": 69,
+        "image": "assets/piece-0-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l0-p1",
+        "name": "بنطلون أصفر واسع",
+        "price": 89,
+        "image": "assets/piece-0-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l0-p2",
+        "name": "بوت كريمي",
+        "price": 119,
+        "image": "assets/piece-0-2.webp",
+        "kind": "shoe"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Off duty",
+    "ar": "إطلالة يومية",
+    "description": "٤ قطع · كنزة وجينز وحذاء وقبعة",
+    "image": "assets/model-5.webp",
+    "source": 5,
+    "pieces": [
+      {
+        "id": "l1-p0",
+        "name": "كنزة وردية فاتحة",
+        "price": 65,
+        "image": "assets/piece-1-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l1-p1",
+        "name": "جينز أزرق ممزّق",
+        "price": 95,
+        "image": "assets/piece-1-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l1-p2",
+        "name": "حذاء رياضي فاتح",
+        "price": 110,
+        "image": "assets/piece-1-2.webp",
+        "kind": "shoe"
+      },
+      {
+        "id": "l1-p3",
+        "name": "قبعة صوف سوداء",
+        "price": 25,
+        "image": "assets/piece-1-3.webp",
+        "kind": "hat"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Blue tailoring",
+    "ar": "إطلالة رسمية",
+    "description": "٤ قطع · جاكيت وقميص وبنطلون وحذاء",
+    "image": "assets/model-11.webp",
+    "source": 11,
+    "pieces": [
+      {
+        "id": "l2-p0",
+        "name": "جاكيت بدلة كحلي",
+        "price": 179,
+        "image": "assets/piece-2-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l2-p1",
+        "name": "قميص أبيض",
+        "price": 59,
+        "image": "assets/piece-2-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l2-p2",
+        "name": "بنطلون بدلة كحلي",
+        "price": 109,
+        "image": "assets/piece-2-2.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l2-p3",
+        "name": "حذاء جلدي بني",
+        "price": 139,
+        "image": "assets/piece-2-3.webp",
+        "kind": "shoe"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Graphic rhythm",
+    "ar": "إطلالة الخطوط",
+    "description": "٣ قطع · توب وبنطلون وحقيبة",
+    "image": "assets/model-1.webp",
+    "source": 1,
+    "pieces": [
+      {
+        "id": "l3-p0",
+        "name": "توب فاتح دون أكمام",
+        "price": 49,
+        "image": "assets/piece-3-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l3-p1",
+        "name": "بنطلون واسع مخطّط",
+        "price": 99,
+        "image": "assets/piece-3-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l3-p2",
+        "name": "حقيبة صغيرة حمراء",
+        "price": 75,
+        "image": "assets/piece-3-2.webp",
+        "kind": "bag"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "City in blue",
+    "ar": "إطلالة المدينة",
+    "description": "٤ قطع · معطف وتنورة وبوت وحقيبة",
+    "image": "assets/model-7.webp",
+    "source": 7,
+    "pieces": [
+      {
+        "id": "l4-p0",
+        "name": "معطف أزرق طويل",
+        "price": 189,
+        "image": "assets/piece-4-0.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l4-p1",
+        "name": "تنورة زرقاء",
+        "price": 85,
+        "image": "assets/piece-4-1.webp",
+        "kind": "cloth"
+      },
+      {
+        "id": "l4-p2",
+        "name": "بوت أبيض طويل",
+        "price": 129,
+        "image": "assets/piece-4-2.webp",
+        "kind": "shoe"
+      },
+      {
+        "id": "l4-p3",
+        "name": "حقيبة كتف وردية",
+        "price": 89,
+        "image": "assets/piece-4-3.webp",
+        "kind": "bag"
+      }
+    ]
+  }
+]
