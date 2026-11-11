@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "Pointer rotation traverses 64 distinct frames in one drag; no four-view buttons",
+    "Five products \u00d7 both modes: correct atlases, keyboard rotation, generated back/side views, intro gesture and angle-preserving swatches passed",
+    "Rail pointer selection, no hover wobble, frameless detail, back buttons, sizes, quantities, cart totals/persistence, search, size guide and Escape passed",
+    "1280\u00d7800, 1440\u00d7900, 1920\u00d71080 layouts and reduced motion passed; zero browser errors or failed responses",
+    "All 640 atlas frames validated for transparent corners; no large detached garment fragments",
+    "Final standalone: full rail, model front/back, cart and corrected ivory garment passed while offline after HTML load; zero network asset requests or browser errors"
+  ],
+  "browser_errors": [],
+  "failed_responses": [],
+  "environment_note": "Managed Chromium blocks file:// navigation. Self-contained HTML was served once over localhost, with all subsequent asset requests blocked and the browser offline."
+}

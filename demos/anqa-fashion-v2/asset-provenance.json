@@ -1,0 +1,217 @@
+{
+  "project": "ANQA — أناقة v2",
+  "imagery": "Native OpenAI image generation using project-specific garment/model references. No reference recording pixels used as shop assets.",
+  "model_source_angles": 16,
+  "product_source_angles": 8,
+  "rendered_frames_per_sequence": 64,
+  "interpolation": {
+    "tool": "Practical-RIFE",
+    "version": "4.25",
+    "source": "https://github.com/hzwer/Practical-RIFE",
+    "weights_source": "https://huggingface.co/MonsterMMORPG/Practical-RIFE",
+    "note": "Offline authoring only. Inference code and model weights are not distributed or called by the site."
+  },
+  "limitations": "Photorealistic generated multi-angle imagery and interpolated frames, not a scanned person, a 3D mesh, live cloth physics or automatic fitting.",
+  "assets": [
+    {
+      "name": "coal-model-360.webp",
+      "sha256": "60a3784550ed1de38b4d273b913708ea2492ed007603eb70c7c7e35876a8ebed"
+    },
+    {
+      "name": "coal-model-back.webp",
+      "sha256": "82fdac00a840ad0ed74f4e41c2153f0a76ccb6f33e56a5d3c83b8e6dc5e0dd8e"
+    },
+    {
+      "name": "coal-model-front.webp",
+      "sha256": "f51fa7b75f2d577430f003613b231faaf85dc69c7f0ec1537f9dbdad17114f3f"
+    },
+    {
+      "name": "coal-model-left.webp",
+      "sha256": "3c82c971bfaf0735e4e7b31d2a274f981ff1a6ea4ff454d304392a0d5ecae713"
+    },
+    {
+      "name": "coal-model-right.webp",
+      "sha256": "6084f47cb4deaf4b3def1d64024544f7511b2cb36279b42afbcb70b4a00f94b3"
+    },
+    {
+      "name": "coal-product-360.webp",
+      "sha256": "078b07c2066ceb43301cb2a4aa9a87d5eea968f1476601ed55dfbc251cedbe39"
+    },
+    {
+      "name": "coal-product-back.webp",
+      "sha256": "767aa3aa70c0fe869b2891228ababd3aecc2c0064ef98ea1113e53810f3096a6"
+    },
+    {
+      "name": "coal-product-front.webp",
+      "sha256": "655ecac7cb4f3abafed138a0182b258426dea2c2b8927bbb8705592599232672"
+    },
+    {
+      "name": "coal-product-left.webp",
+      "sha256": "3869bf46665986cd530076c656cf9d5e8bdd3d4c7ba3ac946cf5afb20e463ad7"
+    },
+    {
+      "name": "coal-product-right.webp",
+      "sha256": "9321ec427e6b16a6cf6a3bd9bfccd0e48bc24af50fa05a357350b8670db2478d"
+    },
+    {
+      "name": "forest-model-360.webp",
+      "sha256": "4a655ec770b830983b10619d3b9c4e1ae3e2b95358630e3b97b222b9f42ae2bd"
+    },
+    {
+      "name": "forest-model-back.webp",
+      "sha256": "968797e33a044eab804a2cf08db51fe802abc790a15cdb1ba1e4833235cea815"
+    },
+    {
+      "name": "forest-model-front.webp",
+      "sha256": "a1f8da90033f2431a5df2e242335ade209509f5866954d6a7ee5db5989829b6d"
+    },
+    {
+      "name": "forest-model-left.webp",
+      "sha256": "01212bf10d92c96127e2931edf478246ac51cf6a155f4b5a61d57ae5458297a2"
+    },
+    {
+      "name": "forest-model-right.webp",
+      "sha256": "dd082d9acd6182a4cba1270d20878b53b784cf830c12a257074c87c2cc87d846"
+    },
+    {
+      "name": "forest-product-360.webp",
+      "sha256": "ff4c41c51c9f6c04177888e2abf956b38dec67e29415f37d52cd393c7386a819"
+    },
+    {
+      "name": "forest-product-back.webp",
+      "sha256": "5840ff1c239fff1bc7f5bcb8d069a237abaaae644e00424e9c5e6ee51da52b59"
+    },
+    {
+      "name": "forest-product-front.webp",
+      "sha256": "27c45dc613fd27156c651fc1ce2d3f7bbc22c4df72ba2a772e83382f775c1963"
+    },
+    {
+      "name": "forest-product-left.webp",
+      "sha256": "5aad70d44f6d2578e108b7c54891c5c11d55e5a1de8ec41a19bb8bff74de4817"
+    },
+    {
+      "name": "forest-product-right.webp",
+      "sha256": "943dec4d207606652fb7058393a92f8adab19b4cea2ec610b77fd0e46c24fdea"
+    },
+    {
+      "name": "oat-model-360.webp",
+      "sha256": "915eed302f357d0a4f5acd1f122e3617b58372cdfc24bd242490b4df3003b162"
+    },
+    {
+      "name": "oat-model-back.webp",
+      "sha256": "e6c65da943b14d0b0586e5351e8fef82467dcfdc40c24e2c3fab2cba4eb4c8cd"
+    },
+    {
+      "name": "oat-model-front.webp",
+      "sha256": "9718dee48f70d2717fb25ab9822c6fcc988dc5d5f52886c23338de90a2eea144"
+    },
+    {
+      "name": "oat-model-left.webp",
+      "sha256": "9385bda7e3cfb60dc2ae94e082e9600f10d71f0985bbcbe070ad7d3e54819184"
+    },
+    {
+      "name": "oat-model-right.webp",
+      "sha256": "655c1033c914e6efcdd1d0ab865aec3517e5ae8ed007f4319fabc511f62f574e"
+    },
+    {
+      "name": "oat-product-360.webp",
+      "sha256": "7d7011a60ddc6208b381f8f0f1d749836eec676b07e765f8200db925e74bdae3"
+    },
+    {
+      "name": "oat-product-back.webp",
+      "sha256": "7b00fc06c82785ce22a852e8faf2cfda40b70e4efab213f468e330b1c450ab63"
+    },
+    {
+      "name": "oat-product-front.webp",
+      "sha256": "37a567e3a028a4c64a80474c12101769bb060db36686850b7d59222a9993e8c7"
+    },
+    {
+      "name": "oat-product-left.webp",
+      "sha256": "f3a1734fa58f918b58546a905f9b9de1a4807a1efa48c5203998d6c450351b46"
+    },
+    {
+      "name": "oat-product-right.webp",
+      "sha256": "e4e9333deaa895a9145b7f31514161187f8edd1d6bfb4c7f5d808be9dc1c2864"
+    },
+    {
+      "name": "sky-model-360.webp",
+      "sha256": "1ce6b4ca1da20cdb052ede60bb691a370a20c28e7c3b4eab6eae5123e97a87c2"
+    },
+    {
+      "name": "sky-model-back.webp",
+      "sha256": "0dd94d8f8cbe10a49d1244a6c399dd59d74d1641d7cdc047ad9c963d6106b3ba"
+    },
+    {
+      "name": "sky-model-front.webp",
+      "sha256": "dfcf5fb3a89e40b659d75e23a01e508065529354f8d1a70d79cbc6820519a3f3"
+    },
+    {
+      "name": "sky-model-left.webp",
+      "sha256": "cbd55fdab4a8be502834ac7499f35784322d8bd8f707d56a94d0208ab3f421c6"
+    },
+    {
+      "name": "sky-model-right.webp",
+      "sha256": "b1cbec0708deda20c044dabf8464859328d2b22124bf20333e529869f2a03de2"
+    },
+    {
+      "name": "sky-product-360.webp",
+      "sha256": "0a2a06956b54566dfd4e8f4e2d7522f3a96a8e5da17173ba705a1b07b4d671ac"
+    },
+    {
+      "name": "sky-product-back.webp",
+      "sha256": "b00f0824f007f715e907dfe9d3b2bb2987267e280bde7a97679b94f756b96a83"
+    },
+    {
+      "name": "sky-product-front.webp",
+      "sha256": "d2f225a1980a69b514745d0138276b5919bd2ac2789e6bcb3711af425a61c70f"
+    },
+    {
+      "name": "sky-product-left.webp",
+      "sha256": "73d87ac5d51643275dc18fdd8b87c392b4418a3bc9207057d14bfd0287c16f97"
+    },
+    {
+      "name": "sky-product-right.webp",
+      "sha256": "a0ffcb756b98662e5860b8f53a9a01c924728db241686d3553df31888adc768f"
+    },
+    {
+      "name": "wine-model-360.webp",
+      "sha256": "d5b0d5eda4df99260a161b84bdc9b9945a990d06088c5cf2e98e97446472907e"
+    },
+    {
+      "name": "wine-model-back.webp",
+      "sha256": "f17d42e8717a41691ee487367d0b6780d1437f6364d894e28b27c52248f51998"
+    },
+    {
+      "name": "wine-model-front.webp",
+      "sha256": "7a26aeca347316797dfbaaeff3b18348039fcaf2dbf7dd74ac121b897f228728"
+    },
+    {
+      "name": "wine-model-left.webp",
+      "sha256": "f6fcab4ef6da416c1aae32a910c3cb2c269b8a72c40527350c64258397c5d0a1"
+    },
+    {
+      "name": "wine-model-right.webp",
+      "sha256": "859980f51d3c11a90614a52d9ae1f8d8889814b6f2d5b5f8e402f7822efca469"
+    },
+    {
+      "name": "wine-product-360.webp",
+      "sha256": "a1539b5f359674f99c585023a5f2aa99313ac5befecaa577689b33b76364db87"
+    },
+    {
+      "name": "wine-product-back.webp",
+      "sha256": "6300b31d62ec98a2a00f20584c1509ea5b69f73a7310199b0da8fe0a9fed542d"
+    },
+    {
+      "name": "wine-product-front.webp",
+      "sha256": "3c1219044901e495db382323262aa06d638bb40fa47f3681c5fb9eec9728a26c"
+    },
+    {
+      "name": "wine-product-left.webp",
+      "sha256": "843c57e3033904617189228baccbf7418509d262a8a34b045456e52f7fd2a601"
+    },
+    {
+      "name": "wine-product-right.webp",
+      "sha256": "9aed55c99b2ae2ceaf319dde4680f2a7d84690e01b3e77b91aa74b31990374d9"
+    }
+  ]
+}
