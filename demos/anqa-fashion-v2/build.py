@@ -22,6 +22,8 @@ for name in ['turntable.js','app.js']:html=html.replace('<script src="'+name+'">
 (R/'ANQA_Standalone.html').write_text(html)
 files=['index.html','style.css','app.js','turntable.js','catalog.js','catalog.json','build.py','README.md','verification.json','test_shop.py','preview.jpg','asset-provenance.json']
 with zipfile.ZipFile(R/'ANQA_Desktop_v2.zip','w',zipfile.ZIP_DEFLATED) as z:
+ z.write(R/'ANQA_Standalone.html','ANQA_Standalone.html')
+ z.writestr('START_HERE.txt','ANQA — أناقة\n\nافتح ANQA_Standalone.html الموجود مباشرة داخل هذا المجلد.\nهذا هو الموقع الكامل: الصور والخط والتنسيق موجودة داخل الملف نفسه.\n\nمجلد ANQA يحتوي الملفات القابلة للتعديل. إذا أردت فتح ANQA/index.html، فك ضغط المجلد كاملاً أولاً؛ فتح index.html وحده من داخل ZIP لا يحمّل بقية الملفات.\n')
  for name in files:
   if (R/name).exists():z.write(R/name,'ANQA/'+name)
  for p in sorted((R/'assets').iterdir()):z.write(p,'ANQA/assets/'+p.name)
