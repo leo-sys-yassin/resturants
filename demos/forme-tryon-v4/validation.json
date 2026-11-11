@@ -1,0 +1,8 @@
+{
+  "node_tests": 5,
+  "browser_tests": "desktop and mobile passed",
+  "native_tryon_example": "generated and visually inspected",
+  "website_live_provider_call": "not performed; OPENAI_API_KEY absent",
+  "standalone_html": "supports local management, not live generation",
+  "provider_contract_tests": "mocked OpenAI response, not live service"
+}
