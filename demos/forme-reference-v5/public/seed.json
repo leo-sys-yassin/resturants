@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "id": "stripe-tee",
+      "name": "تيشيرت أبيض مخطّط بالأحمر",
+      "category": "top",
+      "price": 49,
+      "image": "assets/sample-shirt.webp"
+    },
+    {
+      "id": "denim-shorts",
+      "name": "شورت جينز أزرق",
+      "category": "bottom",
+      "price": 79,
+      "image": "assets/sample-shorts.webp"
+    },
+    {
+      "id": "red-espadrilles",
+      "name": "حذاء إسبادريل أحمر",
+      "category": "shoes",
+      "price": 89,
+      "image": "assets/sample-shoes.webp"
+    }
+  ],
+  "models": [
+    {
+      "id": "model-man",
+      "name": "موديل رجالي — مرجع الهوية",
+      "image": "assets/identity-man.jpg"
+    },
+    {
+      "id": "model-woman",
+      "name": "موديل نسائي — مرجع الهوية",
+      "image": "assets/model-woman.webp"
+    }
+  ],
+  "looks": [
+    {
+      "id": "sample-native-tryon",
+      "name": "إطلالة مخطّطة — عينة تلبيس",
+      "image": "assets/example-tryon.png",
+      "products": [
+        {
+          "id": "stripe-tee",
+          "name": "تيشيرت أبيض مخطّط بالأحمر",
+          "category": "top",
+          "price": 49,
+          "image": "assets/sample-shirt.webp"
+        },
+        {
+          "id": "denim-shorts",
+          "name": "شورت جينز أزرق",
+          "category": "bottom",
+          "price": 79,
+          "image": "assets/sample-shorts.webp"
+        },
+        {
+          "id": "red-espadrilles",
+          "name": "حذاء إسبادريل أحمر",
+          "category": "shoes",
+          "price": 89,
+          "image": "assets/sample-shoes.webp"
+        }
+      ],
+      "aiGenerated": true,
+      "sample": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "desktop": [
+    1440,
+    850
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "ui": "passed",
+  "motion": [
+    "scroll clip",
+    "persistent carousel nodes and interpolated transform",
+    "spring pendulum",
+    "product FLIP animation"
+  ],
+  "images": "actual photos; backgrounds removed, not from video frames",
+  "exact_pixel_match": false
+}
