@@ -1,0 +1,15 @@
+{
+  "passed": [
+    "Offline standalone: all five meshes, fonts and product images load; direct 3D mesh click opens product; size, quantity, cart, removal, search and modal scroll restoration pass.",
+    "Scroll path opens entrance doors, returns them to closed on reverse; rear expansion door remains closed and explains its status.",
+    "Emulated phone vertical touch swipe advances the tour; static architecture is batched by material.",
+    "390px mobile viewport: no horizontal overflow; tour navigation and catalog work. Physical touch smoothness requires device testing."
+  ],
+  "errors": [],
+  "html_sha256": "4a437bb8d88c4e8108f05a3c11de664c39658a9309326d804b1b50657f2a7d46",
+  "limitations": [
+    "Software-rendered Chromium; no real phone GPU benchmark.",
+    "Existing approximate garment geometry retained.",
+    "Architectural demo, not a photograph or production checkout."
+  ]
+}
