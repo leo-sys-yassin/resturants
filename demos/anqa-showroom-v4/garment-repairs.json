@@ -1,0 +1,97 @@
+{
+  "forest": {
+    "source_faces": 10964,
+    "retained_faces": 10568,
+    "removed_faces": 396,
+    "bounds": [
+      [
+        -0.35868544805269703,
+        -0.42,
+        -0.04172801518062903
+      ],
+      [
+        0.35868544805269703,
+        0.285,
+        0.04172801518062903
+      ]
+    ],
+    "source": "SAM 3D Objects, rebuilt from original front product image",
+    "repairs": "Removed hanger-colored upper faces and isolated fragments; physical garment scale normalized; UV texture retained. Upper neck envelope smoothed; runtime sewn collar rim added for crew-neck pieces."
+  },
+  "coal": {
+    "source_faces": 21687,
+    "retained_faces": 21686,
+    "removed_faces": 1,
+    "bounds": [
+      [
+        -0.37783516084539975,
+        -0.43999999999999995,
+        -0.07972111729116801
+      ],
+      [
+        0.37783516084539975,
+        0.38,
+        0.07972111729116801
+      ]
+    ],
+    "source": "SAM 3D Objects, rebuilt from original front product image",
+    "repairs": "Removed hanger-colored upper faces and isolated fragments; physical garment scale normalized; UV texture retained. Upper neck envelope smoothed; runtime sewn collar rim added for crew-neck pieces."
+  },
+  "wine": {
+    "source_faces": 12416,
+    "retained_faces": 12416,
+    "removed_faces": 0,
+    "bounds": [
+      [
+        -0.36731744412779366,
+        -0.43999999999999995,
+        -0.05652469376531174
+      ],
+      [
+        0.36731744412779366,
+        0.38,
+        0.05652469376531174
+      ]
+    ],
+    "source": "SAM 3D Objects, rebuilt from original front product image",
+    "repairs": "Removed hanger-colored upper faces and isolated fragments; physical garment scale normalized; UV texture retained. Upper neck envelope smoothed; runtime sewn collar rim added for crew-neck pieces."
+  },
+  "sky": {
+    "source_faces": 15674,
+    "retained_faces": 15016,
+    "removed_faces": 658,
+    "bounds": [
+      [
+        -0.35514101615910837,
+        -0.39999999999999997,
+        -0.052146058617630026
+      ],
+      [
+        0.35514101615910837,
+        0.285,
+        0.052146058617630026
+      ]
+    ],
+    "source": "SAM 3D Objects, rebuilt from original front product image",
+    "repairs": "Removed hanger-colored upper faces and isolated fragments; physical garment scale normalized; UV texture retained. Upper neck envelope smoothed; runtime sewn collar rim added for crew-neck pieces."
+  },
+  "oat": {
+    "source_faces": 11154,
+    "retained_faces": 10738,
+    "removed_faces": 416,
+    "bounds": [
+      [
+        -0.3521189479383405,
+        -0.42,
+        -0.04473355452697579
+      ],
+      [
+        0.3521189479383405,
+        0.285,
+        0.04473355452697579
+      ]
+    ],
+    "source": "SAM 3D Objects, rebuilt from original front product image",
+    "repairs": "Removed hanger-colored upper faces and isolated fragments; physical garment scale normalized; UV texture retained. Upper neck envelope smoothed; runtime sewn collar rim added for crew-neck pieces."
+  }
+}

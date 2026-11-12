@@ -1,0 +1,14 @@
+{
+  "passed": [
+    "Five garments start side-on; hovering turns the selected garment front-on; product viewer supports full yaw-only 360\u00b0 drag with unchanged geometry and texture; photo toggle and cart work offline.",
+    "Entrance moved 2 m forward; full tour exits to new facade position. About section scrolls into view and provides catalog and return-to-entry actions.",
+    "390px mobile: first tap previews garment, second opens detail; viewer and About page have no horizontal overflow."
+  ],
+  "errors": [],
+  "html_sha256": "f96ce5381cc224ad1702d647c50b559c06917ece9d49cff4b203f6bab8c93043",
+  "limitations": [
+    "Direct file URL navigation is blocked by the managed browser policy (ERR_BLOCKED_BY_ADMINISTRATOR); standalone HTML tested through localhost with networking disabled after initial load.",
+    "Reduced-motion browser used for deterministic flow tests; real device smoothness not measured.",
+    "Architecture uses denoised baked lighting; garment backs are AI reconstructions, not scans of physical inventory. No pixel-exact AURA match is claimed."
+  ]
+}
