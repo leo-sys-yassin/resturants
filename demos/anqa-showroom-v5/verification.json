@@ -1,0 +1,17 @@
+{
+  "passed": {
+    "stationary_pixels": "All pixels outside the moving aperture and control area remain exactly unchanged between closed and open states.",
+    "original_photo": "The closed facade matches the supplied original photograph; no regeneration or replacement of the fixed facade.",
+    "close": "Closing restores the exact original screen.",
+    "handoff": "Entry reaches the existing interior; garment detail works; return-to-entrance restores the photo.",
+    "mobile": "390px viewport preserves the entire photograph without cropping or overflow; touch open/close works offline."
+  },
+  "errors": [],
+  "html_sha256": "9f55008d5c5c15b46d654d549c8012d50dd50959045e909517fde9a8d4ea432d",
+  "source_photo_sha256": "4b0bf1fe5d836bb7df18f105dc5a89c6f324c7971858d9715070612274e8fbf0",
+  "limitations": [
+    "The area behind the removed doors is an AI-inpainted plate displayed only inside the aperture.",
+    "The interior after entry remains the previous interactive showroom; this change does not reconstruct the photographed interior.",
+    "Reduced-motion software Chromium used; real-device frame rate not measured."
+  ]
+}
