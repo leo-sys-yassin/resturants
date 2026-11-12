@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "Five garments start side-on; hovering turns the selected garment front-on; product viewer supports full yaw-only 360\u00b0 drag with unchanged geometry and texture; photo toggle and cart work offline.",
+    "Entrance moved 2 m forward; full tour exits to new facade position. About section scrolls into view and provides catalog and return-to-entry actions.",
+    "390px mobile: first tap previews garment, second opens detail; viewer and About page have no horizontal overflow."
+  ],
+  "errors": [],
+  "html_sha256": "71b31342f54c58fa6ddeca22577449c8374d992f0f665d4001eb8e7f0aed01d4",
+  "limitations": [
+    "Reduced-motion browser used for deterministic flow tests; real device smoothness not measured.",
+    "Photoreal reference facade and replacement garment models are not completed; original approximate assets remain."
+  ]
+}
