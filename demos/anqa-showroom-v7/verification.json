@@ -1,0 +1,19 @@
+{
+  "passed": {
+    "download": "ZIP contains exactly one standalone HTML file.",
+    "doors": "Door geometry, scale and hinge positions remain invariant; only rigid yaw changes. Both doors open inward; camera crosses the threshold. Fixed upper glass remains in the scene.",
+    "360": "Repeated mouse drags pass a full 360 degrees with a fixed eye and zero roll; wheel changes FOV without scrolling the page.",
+    "walking": "A floor waypoint responds to an actual click; the route to the opposite side travels around the central island.",
+    "products": "Existing mesh still rotates continuously in the product viewer and can be added to the local bag.",
+    "mobile": "Phone layout has no horizontal overflow; native touch drag changes viewing direction.",
+    "normal_motion": "Ordinary motion includes intermediate camera positions and intermediate hinge angles; it is not a scene swap.",
+    "materials": "4K oak color, independent normal and roughness maps; separate vein-cut facade travertine, pitted floor and smooth cabinet stone. Oak close-up visually reviewed."
+  },
+  "errors": [],
+  "html_sha256": "fb017fd8ebe7782924e6ddf2441f526bceab650af5ab2e3226daf6537f7acba0",
+  "limitations": [
+    "Software-rendered browser tests, no real-device FPS measurement.",
+    "Material textures match the supplied palette; floor texture is generated, oak and smooth stone use CC0 scanned maps.",
+    "Banuba was used as an interaction reference only; no Banuba design or assets are included."
+  ]
+}

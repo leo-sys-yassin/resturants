@@ -1,0 +1,5 @@
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+R=Path(__file__).parent
+with sync_playwright() as w:
+ b=w.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--enable-unsafe-swiftshader']);p=b.new_page(viewport={'width':1100,'height':800},reduced_motion='reduce');p.set_default_timeout(90000);p.goto('http://127.0.0.1:8927/ANQA_Showroom_v7.html',timeout=120000);p.wait_for_function('window.ANQA_TOUR?.surfaceReady && ANQA_TOUR.architectureReady',timeout=120000);p.evaluate('ANQA_TOUR.go(.30)');p.wait_for_function('ANQA_TOUR.controls.state.active');p.evaluate('ANQA_TOUR.controls.walkTo(1)');p.wait_for_function('ANQA_TOUR.controls.state.position.distanceTo(ANQA_TOUR.controls.nodes[1])<.05');p.evaluate('ANQA_TOUR.controls.resetLook();ANQA_TOUR.controls.state.targetYaw=Math.PI/2;ANQA_TOUR.controls.state.targetPitch=0;ANQA_TOUR.controls.state.targetFov=40');p.wait_for_function('Math.abs(ANQA_TOUR.camera.fov-40)<.1');p.screenshot(path=str(R/'review/oak-close.png'));print('Close-up captured',flush=True);b.close()

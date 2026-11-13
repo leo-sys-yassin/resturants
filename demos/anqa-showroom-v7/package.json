@@ -1,0 +1,1 @@
+{"name":"anqa-showroom","private":true,"type":"module","scripts":{"build":"esbuild app.js --bundle --minify --outfile=app.bundle.js && python build.py"},"dependencies":{"three":"0.180.0","esbuild":"0.25.11"}}

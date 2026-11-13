@@ -1,0 +1,33 @@
+import * as T from 'three';
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+export function createExploreControls({canvas,camera,parent,objects,invalidate,pick,select,hover,toast,reduced}){
+ const nodes=[[0,1.65,3.5],[-1.65,1.65,1.75],[-1.15,1.65,-.75],[1.35,1.65,-.75],[1.35,1.65,2.0]].map(p=>new T.Vector3(...p));
+ const edges=[[1,4],[0,2],[1,3],[2,4],[0,3]],group=new T.Group();group.name='Walkable tour waypoints';parent.add(group);
+ for(let i=0;i<nodes.length;i++){const ring=new T.Mesh(new T.RingGeometry(.095,.135,48),new T.MeshBasicMaterial({color:0xb69c73,transparent:true,opacity:.85,side:T.DoubleSide,depthWrite:false}));ring.rotation.x=-Math.PI/2;ring.position.copy(nodes[i]);ring.position.y=.027;ring.userData.waypoint=i;ring.name='Walk here '+i;group.add(ring);objects.push(ring);const hit=new T.Mesh(new T.CircleGeometry(.24,32),new T.MeshBasicMaterial({visible:false,side:T.DoubleSide}));hit.rotation.copy(ring.rotation);hit.position.copy(ring.position);hit.userData.waypoint=i;group.add(hit);objects.push(hit)}
+ const euler=new T.Euler(0,0,0,'YXZ'),points=new Map(),state={active:false,yaw:0,pitch:0,targetYaw:0,targetPitch:0,fov:62,targetFov:62,position:new T.Vector3(),route:[],dragging:false};let inside=false,lastPointer=null,pinch=null,dragged=false,velocityX=0,velocityY=0,resetYaw=0,resetPitch=0;
+ function cancel(){state.active=false;state.route=[];points.clear();lastPointer=null;state.dragging=false;velocityX=velocityY=0;canvas.style.touchAction='pan-y'}
+ function activate(){state.active=true;state.position.copy(camera.position);euler.setFromQuaternion(camera.quaternion,'YXZ');state.yaw=state.targetYaw=resetYaw=euler.y;state.pitch=state.targetPitch=resetPitch=euler.x;state.fov=state.targetFov=camera.fov;canvas.style.touchAction='none'}
+ function update(dt,enabled,settled){inside=enabled;group.visible=enabled;
+  if(!enabled){cancel();return false}if(!settled){state.active=false;return false}if(!state.active)activate();
+  const step=Math.max(dt,.016);let moving=false;
+  if(!state.dragging&&Math.abs(velocityX)+Math.abs(velocityY)>.00008){state.targetYaw+=velocityX;state.targetPitch=clamp(state.targetPitch+velocityY,-1.18,1.18);velocityX*=Math.exp(-step*14);velocityY*=Math.exp(-step*14);moving=true}
+  const a=reduced?1:1-Math.exp(-step*16);state.yaw+= (state.targetYaw-state.yaw)*a;state.pitch+=(state.targetPitch-state.pitch)*a;state.fov+=(state.targetFov-state.fov)*a;
+  if(state.route.length){const goal=state.route[0];if(reduced)state.position.copy(goal);else state.position.lerp(goal,1-Math.exp(-step*3.5));if(state.position.distanceTo(goal)<.035){state.position.copy(goal);state.route.shift()}moving=true}
+  camera.position.copy(state.position);camera.rotation.set(state.pitch,state.yaw,0,'YXZ');if(Math.abs(camera.fov-state.fov)>.001){camera.fov=state.fov;camera.updateProjectionMatrix()}
+  for(const child of group.children)child.visible=child.position.distanceTo(state.position)>.6;
+  return moving||Math.abs(state.targetYaw-state.yaw)>.00005||Math.abs(state.targetPitch-state.pitch)>.00005||Math.abs(state.targetFov-state.fov)>.001;
+ }
+ function walkTo(index){if(!state.active||!nodes[index])return;let start=0;nodes.forEach((n,i)=>{if(n.distanceTo(state.position)<nodes[start].distanceTo(state.position))start=i});const q=[[start]],seen=new Set([start]);let route=[start];while(q.length){const p=q.shift(),last=p.at(-1);if(last===index){route=p;break}for(const n of edges[last])if(!seen.has(n)){seen.add(n);q.push([...p,n])}}state.route=[...route.map(i=>nodes[i].clone())];velocityX=velocityY=0;invalidate()}
+ canvas.addEventListener('wheel',e=>{if(!inside||!state.active||document.querySelector('dialog[open]'))return;e.preventDefault();state.targetFov=clamp(state.targetFov+e.deltaY*.025,40,82);invalidate()},{passive:false});
+ canvas.addEventListener('pointerdown',e=>{if(!inside||!state.active||e.button!==0)return;points.set(e.pointerId,{x:e.clientX,y:e.clientY});canvas.setPointerCapture(e.pointerId);dragged=false;state.dragging=true;velocityX=velocityY=0;if(points.size===2){const a=[...points.values()];pinch={distance:Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y),fov:state.targetFov};dragged=true;lastPointer=null}else lastPointer={id:e.pointerId,x:e.clientX,y:e.clientY,startX:e.clientX,startY:e.clientY,type:e.pointerType};canvas.style.cursor='grabbing'});
+ canvas.addEventListener('pointermove',e=>{if(!inside||!state.active)return;if(points.has(e.pointerId))points.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(points.size===2&&pinch){const a=[...points.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);state.targetFov=clamp(pinch.fov*pinch.distance/Math.max(1,d),40,82);invalidate();return}
+  if(lastPointer&&lastPointer.id===e.pointerId){const dx=e.clientX-lastPointer.x,dy=e.clientY-lastPointer.y;if(Math.hypot(e.clientX-lastPointer.startX,e.clientY-lastPointer.startY)>5)dragged=true;const rate=(lastPointer.type==='touch'?.003:.0018)*(state.fov/62);velocityX=dx*rate*.14;velocityY=dy*rate*.14;state.targetYaw+=dx*rate;state.targetPitch=clamp(state.targetPitch+dy*rate,-1.18,1.18);lastPointer.x=e.clientX;lastPointer.y=e.clientY;invalidate();return}
+  if(e.pointerType==='mouse'){const h=pick(e),id=h?.object.userData.product??-1;hover(id);canvas.style.cursor=h?'pointer':'grab'}
+ });
+ function end(e,cancelled=false){const had=points.has(e.pointerId);points.delete(e.pointerId);if(!had)return;state.dragging=points.size>0;if(points.size<2)pinch=null;if(lastPointer?.id===e.pointerId)lastPointer=null;canvas.style.cursor='grab';if(!cancelled&&!dragged&&points.size===0){velocityX=velocityY=0;const hit=pick(e);if(hit?.object.userData.waypoint!==undefined)walkTo(hit.object.userData.waypoint);else if(hit)select(hit,e)}invalidate()}
+ canvas.addEventListener('pointerup',e=>end(e));canvas.addEventListener('pointercancel',e=>end(e,true));canvas.addEventListener('lostpointercapture',e=>end(e,true));canvas.addEventListener('pointerleave',()=>{if(!state.dragging)hover(-1)});
+ addEventListener('keydown',e=>{if(!inside||!state.active||document.querySelector('dialog[open]')||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;let handled=true;if(e.key==='ArrowLeft')state.targetYaw+=.15;else if(e.key==='ArrowRight')state.targetYaw-=.15;else if(e.key==='ArrowUp')state.targetPitch=clamp(state.targetPitch+.12,-1.18,1.18);else if(e.key==='ArrowDown')state.targetPitch=clamp(state.targetPitch-.12,-1.18,1.18);else handled=false;if(handled){e.preventDefault();invalidate()}});
+ function resetLook(){state.targetYaw=resetYaw;state.targetPitch=resetPitch;state.targetFov=62;velocityX=velocityY=0;invalidate()}
+ return {update,cancel,resetLook,walkTo,state,nodes,waypoints:group};
+}
