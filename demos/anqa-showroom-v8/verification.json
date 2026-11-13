@@ -1,0 +1,25 @@
+{
+  "passed": {
+    "static_scene": "12 matte black footwear shelves; LED channels instead of spotlight heads; pine walls and teak furniture; eight merged architectural batches.",
+    "doors": "Same rigid door geometry and fixed hinges through three opening poses; camera enters through the actual opening.",
+    "look": "Full 360 yaw with the reference drag direction and no camera orbit; wheel zoom leaves page scroll unchanged.",
+    "walking": "Actual visible waypoint click works; paths go around the island; HUD follows manual destinations.",
+    "products": "An actual proxy hit opens the garment; its mesh rotates continuously and can be added to the local bag.",
+    "rendering": {
+      "architecture_batches": 8,
+      "interaction_triangles": 702,
+      "street_view_draw_calls": 37,
+      "live_shadow_maps": false,
+      "idle_render_loop": false
+    },
+    "mobile": "Native touch drag and narrow layout work offline without overflow.",
+    "normal_motion": "Entry has intermediate door angles and no roll; the exit turn interpolates yaw continuously."
+  },
+  "errors": [],
+  "html_sha256": "3f7063ea97e3b69fd66fee0cf67e9705bd156c9e4f754ae0e0d7630f86ec48c3",
+  "limitations": [
+    "Software Chromium tests; draw-call counts are structural measurements, not real-device FPS.",
+    "Opposite buildings are a photographic generated backdrop; the pavement, road and curbs are 3D.",
+    "Room illumination and resting garment shadows are baked; live LED area lights shade the interactive garments."
+  ]
+}
