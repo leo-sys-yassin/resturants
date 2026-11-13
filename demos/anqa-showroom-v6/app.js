@@ -17,7 +17,7 @@ const stoneDetail=new T.TextureLoader().load(window.WALL_REFERENCE,()=>invalidat
 function addMaterialGrain(mat){mat.onBeforeCompile=shader=>{shader.uniforms.woodDetail={value:woodDetail};shader.uniforms.stoneDetail={value:stoneDetail};shader.vertexShader='varying vec3 vSurfacePosition;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvSurfacePosition=(modelMatrix*vec4(transformed,1.0)).xyz;');shader.fragmentShader='uniform sampler2D woodDetail;uniform sampler2D stoneDetail;varying vec3 vSurfacePosition;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
  vec3 w=vSurfacePosition;float veneer=0.0;vec2 grainUV=w.zy*.7;
  if(w.x < -2.95 && w.x > -3.02 && w.y>.4 && w.y<2.88 && w.z<2.65)veneer=1.0;
- 
+
  if(w.z < -2.60 && w.z > -2.72 && abs(w.x)<.97 && w.y<2.78){veneer=1.0;grainUV=w.xy*.7;}
  if(abs(w.x)<.69 && w.z>.25 && w.z<1.24 && w.y<.65){veneer=1.0;grainUV=w.xy*.9;}
  float grain=dot(texture2D(woodDetail,grainUV).rgb,vec3(.2126,.7152,.0722));
