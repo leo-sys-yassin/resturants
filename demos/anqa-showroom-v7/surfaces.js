@@ -15,7 +15,8 @@ export function createSurfaceLibrary(invalidate){
   else if(name==='BlackSteel')m=new T.MeshStandardMaterial({color:0x24231f,metalness:.72,roughness:.36,envMapIntensity:.6});
   else if(name==='Bronze')m=new T.MeshStandardMaterial({color:0x4b4032,metalness:.85,roughness:.27,envMapIntensity:.7});
   else m=new T.MeshStandardMaterial({color:name==='Upholstery'?0xbbae96:name==='WhiteCeiling'?0xbab0a0:0x211d18,roughness:.85,envMapIntensity:.2});
-  if(baked&&!m.isMeshBasicMaterial){m.lightMap=light;m.lightMapIntensity=1;m.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>','#include <lights_fragment_end>\nreflectedLight.directDiffuse=vec3(0.0);reflectedLight.directSpecular=vec3(0.0);')};m.customProgramCacheKey=()=>name+'-baked-irradiance-v1'}
+  if(baked&&!m.isMeshBasicMaterial){m.lightMap=light;m.lightMapIntensity=1}
+  if(!m.isMeshBasicMaterial){m.onBeforeCompile=shader=>{if(name.startsWith('Oak')||name==='CabinetStone')shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=max(roughnessFactor,'+(name.startsWith('Oak')?'.70':'.50')+');');if(baked)shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>','#include <lights_fragment_end>\nreflectedLight.directDiffuse=vec3(0.0);')};m.customProgramCacheKey=()=>name+'-irradiance-v3-'+baked}
   m.userData.surface=name;m.userData.baked=baked;cache.set(key,m);return m;
  }
  return {get,textures,ready:Promise.all(tasks)};

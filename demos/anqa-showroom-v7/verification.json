@@ -7,13 +7,19 @@
     "products": "Existing mesh still rotates continuously in the product viewer and can be added to the local bag.",
     "mobile": "Phone layout has no horizontal overflow; native touch drag changes viewing direction.",
     "normal_motion": "Ordinary motion includes intermediate camera positions and intermediate hinge angles; it is not a scene swap.",
-    "materials": "4K oak color, independent normal and roughness maps; separate vein-cut facade travertine, pitted floor and smooth cabinet stone. Oak close-up visually reviewed."
+    "materials": "4K oak color, independent normal and roughness maps; separate vein-cut facade travertine, pitted floor and smooth cabinet stone. Oak close-up visually reviewed.",
+    "final_quality": "No canvas blur filter; 4K oak loaded; clear upper glass; >8 mm head clearance and >2 mm hinge-side clearance; rigid door parts invariant through three opening poses; physical metal highlights render without shader errors; ZIP still contains one HTML."
   },
   "errors": [],
-  "html_sha256": "fb017fd8ebe7782924e6ddf2441f526bceab650af5ab2e3226daf6537f7acba0",
+  "html_sha256": "93342be71d21f18678bfc02e233b8e8ff2949174d906eb250c90622362f9d1ea",
   "limitations": [
     "Software-rendered browser tests, no real-device FPS measurement.",
     "Material textures match the supplied palette; floor texture is generated, oak and smooth stone use CC0 scanned maps.",
     "Banuba was used as an interaction reference only; no Banuba design or assets are included."
+  ],
+  "functional_test_html_sha256": "fb017fd8ebe7782924e6ddf2441f526bceab650af5ab2e3226daf6537f7acba0",
+  "post_suite_changes": [
+    "Preserved live direct specular lighting; baked atlas supplies diffuse lighting only.",
+    "Adjusted door profiles for mechanical clearance; tour controls and product behavior unchanged."
   ]
 }

@@ -30,10 +30,10 @@ export function createFacade(parent,surfaces,ready){
  for(const side of [-1,1]){
   box(.032,3.18,.055,side*1.4,1.61,4.995);
   box(1.225,2.615,.009,side*2.035,1.345,4.997,glass);
-  const pivot=new T.Group();pivot.position.set(side*1.4,0,4.995);pivot.name=side<0?'Left rigid door hinge':'Right rigid door hinge';group.add(pivot);doors.push({pivot,side});const cx=-side*.70;
-  const leaf=box(1.348,2.601,.009,cx,1.345,0,glass,pivot);leaf.name='Rigid flat door glazing';
-  for(const x of [-side*.015,-side*1.385])box(.028,2.65,.046,x,1.345,0,metal,pivot);
-  for(const y of [.034,2.656])box(1.40,.028,.046,cx,y,0,metal,pivot);
+  const pivot=new T.Group();pivot.position.set(side*1.4,0,4.995);pivot.name=side<0?'Left rigid door hinge':'Right rigid door hinge';group.add(pivot);doors.push({pivot,side});const cx=-side*.709;
+  const leaf=box(1.326,2.570,.009,cx,1.330,0,glass,pivot);leaf.name='Rigid flat door glazing';
+  for(const x of [-side*.033,-side*1.385])box(.028,2.63,.046,x,1.335,0,metal,pivot);
+  for(const y of [.034,2.636])box(1.38,.028,.046,cx,y,0,metal,pivot);
   const handleX=-side*1.235;for(const z of [-.055,.055]){cyl([handleX,.92,z],[handleX,1.72,z],.012,metal,pivot);for(const y of [1.0,1.64])cyl([handleX,y,0],[handleX,y,z],.008,metal,pivot)}
   for(const y of [.30,1.35,2.40])cyl([0,y-.05,0],[0,y+.05,0],.022,metal,pivot);
  }
