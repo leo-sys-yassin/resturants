@@ -1,0 +1,15 @@
+{
+  "passed": {
+    "entrance": "Single WebGL world; fixed hinges, opposite opening rotations, camera passes through actual aperture; no photo overlay.",
+    "garment": "Existing garment remains a continuous yaw-rotated mesh; product details open.",
+    "return": "Returning closes both doors; facade cannot be orbited.",
+    "mobile": "Phone viewport renders same world offline without horizontal overflow.",
+    "motion": "Default motion produces intermediate camera and door states, not a scene swap."
+  },
+  "errors": [],
+  "html_sha256": "d03f8ae27c1f9f86bee6490d8294b2a3b16be17374b0663c8297ef32dfc7e318",
+  "limits": [
+    "Software Chromium; hardware frame rates not measured.",
+    "Reference image mapped onto facade stone geometry; live interior differs from photographed interior."
+  ]
+}

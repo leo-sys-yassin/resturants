@@ -1,0 +1,14 @@
+{
+  "reference": "ANQA_wall_design_4_references_UPDATED.pdf, page 4",
+  "objects": {
+    "Reference travertine backing": 3,
+    "Black continuous hanging rail": 3,
+    "Stone lower cabinet": 2,
+    "Travertine drawer front": 4,
+    "Black upright": 6
+  },
+  "old_wall_removed": true,
+  "narrow_bay": "Full-height open metal bay",
+  "wide_bays": "Two cabinets, each with two stone drawer faces",
+  "refinement": "Six solid bake-proxy uprights removed from exported mesh; twelve slender front/back posts and twelve short cross-members form open runtime frames."
+}
