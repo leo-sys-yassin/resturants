@@ -1,0 +1,17 @@
+{
+  "Diffuse": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/walnut_veneer/walnut_veneer_diff_2k.jpg",
+    "md5": "48000eac719ccbae27319f942ab5bf2c",
+    "size": 2060618
+  },
+  "nor_gl": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/walnut_veneer/walnut_veneer_nor_gl_2k.jpg",
+    "md5": "987a6cf092f9ab65705416dda264b0ff",
+    "size": 1891517
+  },
+  "Rough": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/walnut_veneer/walnut_veneer_rough_2k.jpg",
+    "md5": "cff9cdcca482f6c71d7ecf49b3789f9e",
+    "size": 2426374
+  }
+}

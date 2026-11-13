@@ -1,0 +1,27 @@
+{
+  "passed": {
+    "static_scene": "12 matte black footwear shelves; LED channels instead of spotlight heads; warm beige plaster and walnut furniture; merged architectural batches.",
+    "doors": "Rigid outward-opening doors with fixed hinges through three poses; both leaf centres swing toward exterior +Z; camera passes through the actual opening; both frames clear the 35mm porch step.",
+    "ceiling": "Exact v8 geometry, transforms, light positions, counts and light properties verified from Blender source scenes.",
+    "look": "Full 360 yaw with the reference drag direction and no camera orbit; wheel zoom leaves page scroll unchanged.",
+    "walking": "Actual visible waypoint click works; paths go around the island; HUD follows manual destinations.",
+    "products": "An actual proxy hit opens the garment; its mesh rotates continuously and can be added to the local bag.",
+    "rendering": {
+      "architecture_batches": 9,
+      "interaction_triangles": 702,
+      "street_view_draw_calls": 53,
+      "live_shadow_maps": false,
+      "idle_render_loop": false
+    },
+    "four_walls": "Four directional browser screenshots captured; repeating the same stop retains control and reset preserves the wider FOV.",
+    "mobile": "Native touch drag and narrow layout work offline without overflow.",
+    "normal_motion": "Outward entry has intermediate door angles and no roll; the exit turn interpolates yaw continuously."
+  },
+  "errors": [],
+  "html_sha256": "1d982fc0b28a37fc5b6cfb417e19a537097566fbd49524b52f7de56d2ddbacf3",
+  "limitations": [
+    "Software Chromium tests; draw-call counts are structural measurements, not real-device FPS.",
+    "Opposite buildings are a photographic generated backdrop; the pavement, road and curbs are 3D.",
+    "Room illumination and resting garment shadows are baked; live LED area lights shade the interactive garments."
+  ]
+}
