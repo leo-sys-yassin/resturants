@@ -1,14 +1,18 @@
-# ANQA stable website
+# ANQA stable hosted website
 
-The hosted showroom is published from `docs/anqa/` to the fixed `/resturants/anqa/` URL using GitHub Pages.
+The live host is Sites: https://anqa-atelier-yassin.salehchat5.chatgpt.site . GitHub Pages activation was unavailable to the connected GitHub integration (HTTP 403); do not report a github.io URL as live.
 
-To update it from the latest verified local project:
+- Persistent project ID: `appgprj_6af757df499c8191944011dcf750ab4d`.
+- Checkout: `/workspace/sites/anqa-atelier`.
+- Hosting manifest: `.openai/hosting.json`, static directory `dist`.
+- Current audience: owner-private. Preserve it unless the user explicitly requests another audience.
 
-1. Build and test the local project as usual.
+To update the same hosted URL:
+
+1. Build and test the latest local ANQA project.
 2. Run `python scripts/publish_anqa.py --source /path/to/current/anqa-project`.
-3. Commit the changed `docs/anqa/` files and push `main`.
-4. Confirm the GitHub Pages deployment and test the stable URL.
+3. Synchronize `docs/anqa/` into the existing Site checkout's `dist/` directory, preserving hashed assets for already-open sessions.
+4. Follow the Sites skill to push the exact source, package `.openai/hosting.json` plus `dist/`, save a new version, and deploy the same project ID. Do not create another Site or change its slug.
+5. Confirm the native deployment status and return its literal production URL.
 
-`boot.js` reads `version.json` without a browser cache on each visit. Scripts, styles, fonts and assets have content-hashed filenames; unchanged binaries are reused by the browser. Old hashed assets are retained for already open sessions. This avoids shipping the monolithic downloadable HTML on the live site while keeping the existing scene and interactions.
-
-The downloadable ZIP versions remain separate backups. Local cart storage remains under the same key for subsequent hosted updates. No service worker pins an old application version.
+`boot.js` reads `version.json` without a browser cache on every visit. The manifest supplies the current body markup, scripts, styles and assets; content-hashed files allow unchanged assets to remain cached. No service worker pins an old application version. Downloadable ZIPs remain separate backups.

@@ -1,6 +1,7 @@
 """Publish a built local ANQA project into the stable GitHub Pages path.
 Run: python scripts/publish_anqa.py --source /path/to/current/project
-Then commit docs/anqa and push main; GitHub Pages deploys the same URL.
+Then synchronize the same tree to the existing Sites checkout and publish that Site.
+See docs/ANQA_HOSTING.md for the persistent Site identity.
 """
 from pathlib import Path
 import argparse,ast,hashlib,json,re,shutil
