@@ -1,0 +1,31 @@
+{
+  "passed": {
+    "static_scene": "Enlarged 6.8x9.5m store; 12 bracketed black shelves, warm plaster, clearer walnut and four continuous island LED sides.",
+    "layout": "Room enlarged, rear corner clearance over 60cm, and every manual walk edge clears the enlarged table with 15cm allowance.",
+    "doors": "Rigid outward-opening doors with fixed hinges through three poses; both leaf centres swing toward exterior +Z; camera passes through the actual opening; both frames clear the 35mm porch step.",
+    "ceiling": "Same ceiling design, strip count, height, color and power; lengths extended only to cover the enlarged room.",
+    "look": "Full 360 yaw with the reference drag direction and no camera orbit; wheel zoom leaves page scroll unchanged.",
+    "walking": "Actual visible waypoint click works; paths go around the island; HUD follows manual destinations.",
+    "products": "An actual proxy hit opens the garment; its mesh rotates continuously and can be added to the local bag.",
+    "rendering": {
+      "architecture_batches": 9,
+      "interaction_triangles": 702,
+      "street_view_draw_calls": 53,
+      "live_shadow_maps": false,
+      "idle_render_loop": false
+    },
+    "four_walls": "Four directional browser screenshots captured; repeating the same stop retains control and reset preserves the wider FOV.",
+    "mobile": "Native touch drag and narrow layout work offline without overflow.",
+    "normal_motion": "Outward entry has intermediate door angles and no roll; the exit turn interpolates yaw continuously.",
+    "clarity": "2x drawing buffer verified on a 2x-density screen; no CSS scene blur; photographic PBR texture maps remain separate from denoised illumination.",
+    "final_material_followup": "Final HTML rechecked offline: shader compiles without console errors, 2K photographic wood independent of 3K lighting, no header haze or scene filter, four wall views, product rotation/cart, native mobile touch and 2x density. Full-suite navigation/product/geometry sources unchanged."
+  },
+  "errors": [],
+  "html_sha256": "0c87964369dda35d8e34f6d46488e39f0060671b6fa5411008c562e233c53d77",
+  "limitations": [
+    "Software Chromium tests; draw-call counts are structural measurements, not real-device FPS.",
+    "Opposite buildings are a photographic generated backdrop; the pavement, road and curbs are 3D.",
+    "Room illumination and resting garment shadows are baked; live LED area lights shade the interactive garments."
+  ],
+  "full_suite_html_sha256_before_final_material_tuning": "307b4a97dacc771bad305debe04ede4ec6fb0846dd41dd29801b534d0287365b"
+}
